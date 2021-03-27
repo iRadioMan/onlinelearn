@@ -9,6 +9,11 @@ body{
     margin: 0 auto;
 }
 
+.form-600px{
+    max-width: 600px;
+    margin: 0 auto;
+}
+
 .form-fullheight{
     min-height: 90%;
     display: flex;

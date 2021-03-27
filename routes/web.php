@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ManageLessonController;
 use App\Http\Controllers\ManageRequestController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
@@ -29,6 +30,11 @@ Route::middleware('auth')->group(function(){
     Route::post('logout', [AuthController::class, 'logout'])->name('auth.logout');
 
     Route::middleware('auth.admin')->group(function(){
-        Route::resource('grouprequests', ManageRequestController::class);
+        Route::prefix('admin')->group(function(){
+            Route::resource('grouprequests', ManageRequestController::class);
+            Route::prefix("manage")->name("manage")->group(function(){
+                Route::resource('lessons', ManageLessonController::class);
+            });
+        });
     });
 });
