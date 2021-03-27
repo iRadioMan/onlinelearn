@@ -1,0 +1,17 @@
+body{
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+.form-300px{
+    max-width: 350px;
+    margin: 0 auto;
+}
+
+.form-fullheight{
+    min-height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
