@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\LessonController;
 use App\Http\Controllers\ManageLessonController;
 use App\Http\Controllers\ManageRequestController;
 use App\Http\Controllers\RegisterController;
@@ -29,6 +30,8 @@ Route::middleware('guest')->group(function(){
 Route::middleware('auth')->group(function(){
     Route::post('logout', [AuthController::class, 'logout'])->name('auth.logout');
     Route::post('regroup', [AuthController::class, 'regroup'])->name('auth.regroup');
+
+    Route::resource('lessons', LessonController::class);
 
     Route::middleware('auth.admin')->group(function(){
         Route::prefix('admin')->group(function(){
