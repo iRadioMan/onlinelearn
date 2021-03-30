@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\UserGroupRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -97,5 +98,17 @@ class AuthController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function regroup(Request $request){
+        $validated = $request->validate([
+            'group_id' => 'required|integer|exists:user_groups,id'
+        ]);
+        
+        UserGroupRequest::create([
+            'user_id' => Auth::user()->id,
+            'group_id' => $validated['group_id']
+        ]);
+        return redirect('/');
     }
 }

@@ -77,8 +77,8 @@ class ManageRequestController extends Controller
         if(!$groupRequest)
             abort(404);
 
-        if($request->status_id === 2){
-            $groupRequest->user->update(['group_id' => $groupRequest->group->id]);
+        if($request->status_id == 2){
+            $groupRequest->user->update(['group_id' => $groupRequest->group_id]);
         }
         $groupRequest->update(['status_id' => $request->status_id]);
         return redirect()->back()->with('success', 'Заявка успешно обновлена.');

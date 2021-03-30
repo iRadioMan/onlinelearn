@@ -3,7 +3,7 @@
 @section('title', 'Редактирование темы')
 
 @section('content')
-<form class="form-600px form-fullheight" method="POST" action="{{route('managelessons.update', $lesson->id)}}">
+<form class="form-600px form-fullheight" method="POST" action="{{route('managelessons.update', $lesson->id)}}" enctype="multipart/form-data">
     @csrf
     @method('PATCH')
     <h1 class="text-center">Редактирование темы</h1>
@@ -34,6 +34,16 @@
         </div>
         @enderror
       </div>
+      <div class="mb-3">
+        <label for="archive" class="form-label">Замена архив с уроком (в корне должен лежать .html файл):</label>
+        <input type="file" class="form-control" name="archive" id="archive" accept=".zip">
+        @error('archive')
+        <div class="alert alert-danger" role="alert">
+            {{ $message }}
+        </div>
+        @enderror
+    </div>
+  
     <button type="submit" class="btn btn-primary">Сохранить</button>
   </form>
   

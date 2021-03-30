@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Lesson;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
+use ZipArchive;
 
 class ManageLessonController extends Controller
 {
@@ -39,8 +42,17 @@ class ManageLessonController extends Controller
             'name' => 'required|string',
             'description' => 'required|string',
             'main_file' => ['required', 'string', 'regex:/^.*\.(html|htm)$/i'],
+            'archive' => 'required|file|mimes:zip'
         ]);
-        Lesson::create($validated);
+        $lesson = Lesson::create($validated);
+        $attachedFile = $request->file('archive');
+        if($attachedFile){
+            $zip = new ZipArchive;
+            $zip->open($attachedFile->getRealPath());
+            $path = getcwd()."/storage/lessons/".$lesson->id;
+            $zip->extractTo($path);
+        }
+        
         return redirect(route('managelessons.index'))->with('success', 'Тема успешно добавлена!');
     }
 
@@ -79,8 +91,16 @@ class ManageLessonController extends Controller
             'name' => 'required|string',
             'description' => 'required|string',
             'main_file' => ['required', 'string', 'regex:/^.*\.(html|htm)$/i'],
+            'archive' => 'file|mimes:zip'
         ]);
         $lesson->update($validated);
+        $attachedFile = $request->file('archive');
+        if($attachedFile){
+            $zip = new ZipArchive;
+            $zip->open($attachedFile->getRealPath());
+            $path = getcwd()."/storage/lessons/".$lesson->id;
+            $zip->extractTo($path);
+        }
         return redirect(route('managelessons.index'))->with('success', 'Тема успешно обновлена!');
     }
 
@@ -92,7 +112,11 @@ class ManageLessonController extends Controller
      */
     public function destroy(Lesson $lesson)
     {
+        $path = getcwd()."/storage/lessons/".$lesson->id;
         $lesson->delete();
+        if (is_dir($path)) {
+            File::deleteDirectory($path);
+        }        
         return redirect(route('managelessons.index'))->with('success', 'Тема успешно удалена!');
     }
 }

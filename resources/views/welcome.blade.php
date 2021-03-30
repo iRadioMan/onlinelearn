@@ -20,6 +20,11 @@
             <span>Группа:</span>
             <b>{{Illuminate\Support\Facades\Auth::user()->lastGroupRequest->group->name}}</b>
         </div>
+        @if(Illuminate\Support\Facades\Auth::user()->lastGroupRequest->status_id === 3)
+            <p class="text-danger">Ваша заявка была отклонена. Вы можете отправить новую заявку:</p>
+            @component('grouprequests.new-form')
+            @endcomponent
+        @endif
     </div>
     @endif
     @endauth

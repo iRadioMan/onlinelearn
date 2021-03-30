@@ -28,6 +28,7 @@ Route::middleware('guest')->group(function(){
 
 Route::middleware('auth')->group(function(){
     Route::post('logout', [AuthController::class, 'logout'])->name('auth.logout');
+    Route::post('regroup', [AuthController::class, 'regroup'])->name('auth.regroup');
 
     Route::middleware('auth.admin')->group(function(){
         Route::prefix('admin')->group(function(){

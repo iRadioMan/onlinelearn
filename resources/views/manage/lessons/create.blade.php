@@ -3,7 +3,7 @@
 @section('title', 'Создание темы')
 
 @section('content')
-<form class="form-600px form-fullheight" method="POST" action="{{route('managelessons.store')}}">
+<form class="form-600px form-fullheight" method="POST" action="{{route('managelessons.store')}}" enctype="multipart/form-data">
     @csrf
     <h1 class="text-center">Создание темы</h1>
     <div class="mb-3">
@@ -32,7 +32,16 @@
             {{ $message }}
         </div>
         @enderror
+    </div>
+    <div class="mb-3">
+      <label for="archive" class="form-label">Архив с уроком (в корне должен лежать .html файл):</label>
+      <input type="file" class="form-control" name="archive" id="archive" accept=".zip">
+      @error('archive')
+      <div class="alert alert-danger" role="alert">
+          {{ $message }}
       </div>
+      @enderror
+  </div>
     <button type="submit" class="btn btn-primary">Добавить</button>
   </form>
   
