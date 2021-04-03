@@ -15,10 +15,13 @@ class CreateAnswersTable extends Migration
     {
         Schema::create('answers', function (Blueprint $table) {
             $table->id();
-            $table->text("description");
             $table->foreignId("question_id");
             $table->foreign("question_id")->references('id')->on('questions')->cascadeOnDelete();
-            $table->boolean("right");
+            $table->foreignId("question_option_id");
+            $table->foreign("question_option_id")->references('id')->on('question_options')->cascadeOnDelete();
+            $table->foreignId("user_id");
+            $table->foreign("user_id")->references('id')->on('users')->cascadeOnDelete();
+            $table->unique(['question_id', 'question_option_id', 'user_id']);
             $table->timestamps();
         });
     }

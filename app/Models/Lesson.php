@@ -14,4 +14,8 @@ class Lesson extends Model
         'description',
         'main_file',
     ];
+
+    public function questions(){
+        return $this->hasMany(Question::class, 'lesson_id');
+    }
 }

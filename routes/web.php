@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\ManageLessonController;
 use App\Http\Controllers\ManageRequestController;
+use App\Http\Controllers\QuizController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
@@ -32,6 +33,7 @@ Route::middleware('auth')->group(function(){
     Route::post('regroup', [AuthController::class, 'regroup'])->name('auth.regroup');
 
     Route::resource('lessons', LessonController::class);
+    Route::resource('quiz', QuizController::class);
 
     Route::middleware('auth.admin')->group(function(){
         Route::prefix('admin')->group(function(){

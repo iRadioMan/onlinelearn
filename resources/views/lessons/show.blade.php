@@ -10,8 +10,13 @@
           <li class="breadcrumb-item active" aria-current="page">{{$lesson->name}}</li>
         </ol>
     </nav>
-    <h1>{{$lesson->name}}</h1>
-    <p>{{$lesson->description}}</p>
+    <div class="d-flex align-items-start justify-content-between">
+        <div>
+            <h1>{{$lesson->name}}</h1>
+            <p>{{$lesson->description}}</p>
+        </div>
+        <a target="_blank" href="{{route('quiz.show', $lesson->id)}}" class="btn btn-outline-primary">Пройти тест</a>
+    </div>
 </div>
 
 @if(session('success'))

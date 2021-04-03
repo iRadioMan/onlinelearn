@@ -18,7 +18,7 @@
 </div>
 @endif
 
-<table class="table">
+<table class="table align-middle">
     <thead>
       <tr>
         <th scope="col">#</th>
