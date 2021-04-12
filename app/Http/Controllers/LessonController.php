@@ -14,7 +14,10 @@ class LessonController extends Controller
      */
     public function index()
     {
-        $lessons = Lesson::all();
+        $lessons = Lesson::all()->filter(function($item){
+            return $item->accessible;
+        });
+        
         return view('lessons.index', ['lessons' => $lessons]);
     }
 

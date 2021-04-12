@@ -12,4 +12,10 @@ class Question extends Model
     public function question_options(){
         return $this->hasMany(QuestionOption::class, 'question_id');
     }
+
+    public function getCorrectQuestionOptionsAttribute(){
+        return $this->question_options->filter(function($value, $key){
+            return $value->correct;
+        });
+    }
 }

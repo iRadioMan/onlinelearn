@@ -29,7 +29,7 @@
             <th scope="row">{{$lesson->id}}</th>
             <td>{{$lesson->name}}</td>
             <td>{{$lesson->description}}</td>
-            <td>Не пройден</td>
+            <td>{{$lesson->quiz_result ? $lesson->quizResult->correct_percentage . "% правильно" : "Не пройден"}}</td>
             <td>
                 <a href="{{route('lessons.show', $lesson->id)}}" class="btn btn-outline-primary">Открыть</a>
             </td>

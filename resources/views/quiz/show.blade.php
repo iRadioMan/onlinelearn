@@ -11,18 +11,21 @@
     </div>
 </div>
 
-<div class="px-5">
+<form id="quiz-form" method="post" class="px-5" action="{{route('quiz.store')}}">
+    @csrf
     @foreach ($lesson->questions as $question)
         <div class="card m-4 p-3">
     
             <h5>{{$question->description}}</h5>
-            
+            <input type="hidden" name="lesson_id" value="{{$lesson->id}}">
             <div class="ps-4 pt-4">
                 @foreach ($question->question_options as $question_option)
-                    <p><input class="form-check-input" type="checkbox" 
-                        value="{{$question_option->correct}}}">
-                        {{$question_option->description}}<br>
-                    </p> 
+                <div class="mb-2">
+                    <input class="form-check-input me-2" type="checkbox" 
+                        name="question_option[]"
+                        value="{{$question_option->id}}" id="question-{{$question_option->id}}">
+                    <label for="question-{{$question_option->id}}">{{$question_option->description}}</label> 
+                </div>
                 @endforeach
             </div>
 
@@ -49,11 +52,8 @@
             <div class="modal-body">
                 <p>Завершить тест и отправить ответы на сервер?</p>
             </div>
-            <div class="modal-footer">
-                <form action="#" method="POST">
-                    @csrf
-                    <input id="modalEndQuizButton" type="submit" class="btn btn-outline-danger" value="Отправить">
-                </form>
+            <div class="modal-footer">                    
+                <input form="quiz-form" id="modalEndQuizButton" type="submit" class="btn btn-outline-primary" value="Отправить">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
             </div>
         </div>
