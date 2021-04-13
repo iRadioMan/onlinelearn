@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="d-flex justify-content-between flex-wrap align-items-center mb-4">
-    <h1>Все темы</h1>
+    <h1>Доступные темы</h1>
 </div>
 
 @if(session('success'))
@@ -37,5 +37,11 @@
         @endforeach
     </tbody>
 </table>
+
+<!-- если юзер не прошел все тесты -->
+<div class="mt-4">
+    <h6>Для доступа к следующей теме необходимо набрать в тесте как минимум {{$acceptable_percentage}}% правильных ответов</h6>
+</div>
+<!-- иначе не отображаем этот блок, а выдаем поздравление с успешным завершением обучения -->
 
 @endsection

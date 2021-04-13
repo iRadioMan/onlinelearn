@@ -33,7 +33,7 @@
     @endforeach
 </div>
 
-<div class="d-flex justify-content-center py-3">
+<div class="d-flex justify-content-center pb-4">
     <a 
         href="#" 
         class="btn btn-outline-primary"

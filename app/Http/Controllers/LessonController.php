@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Lesson;
+use App\Models\AppSettings;
 use Illuminate\Http\Request;
 
 class LessonController extends Controller
@@ -18,7 +19,11 @@ class LessonController extends Controller
             return $item->accessible;
         });
         
-        return view('lessons.index', ['lessons' => $lessons]);
+        return view('lessons.index', [
+            'lessons' => $lessons,
+            'acceptable_percentage' => AppSettings::where('name', 'acceptable_percentage')->first()->value
+            ]
+        );
     }
 
     /**
