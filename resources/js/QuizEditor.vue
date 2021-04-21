@@ -1,20 +1,22 @@
 <template>
-  <div id="app">
-    <button class="btnAddQuestion" @click="addQuestion">Добавить вопрос</button>
+  <div>
+    <button type="button" class="btnAddQuestion btn btn-outline-primary" @click="addQuestion">Добавить вопрос</button>
     <transition-group name="list" tag="div">
       <div class="questionCard" v-for="(question, itemId) in questions" :key="question.id">
         <div class="questionManage">
-          <input class="questionDescription" type="text" v-model="question.description">
-          <button @click="addAnswer(itemId)">Добавить ответ</button>
+          <input :name="'questions['+ itemId +'][id]'" type="hidden" :value="question.id">
+          <input :name="'questions['+ itemId +'][description]'" class="questionDescription" type="text" v-model="question.description">
+          <button type="button" class="btn btn-primary" @click="addAnswer(itemId)">Добавить ответ</button>
           <div>
-            <button class="deleteButton" @click="deleteAnswer(itemId)">x</button>
+            <button type="button" class="deleteButton btn btn-danger" @click="deleteAnswer(itemId)">x</button>
           </div>
         </div>
         <transition-group name="list" tag="div">
-          <div v-for="question_option in question.question_options" :key="question_option.id">
-            <input type="checkbox" v-model="question_option.correct">
-            <input type="text" v-model="question_option.description">
-            <button class="deleteAnswerButton" @click="deleteOption(question, question_option)">x</button>
+          <div class="my-2" v-for="(question_option, qoId) in question.question_options" :key="question_option.id">
+            <input :name="'questions['+ itemId +'][question_options]['+ qoId +'][id]'" type="hidden" :value="question_option.id">
+            <input :name="'questions['+ itemId +'][question_options]['+ qoId +'][correct]'" type="checkbox" v-model="question_option.correct">
+            <input :name="'questions['+ itemId +'][question_options]['+ qoId +'][description]'" type="text" v-model="question_option.description">
+            <button type="button" class="deleteAnswerButton btn btn-danger" @click="deleteOption(question, question_option)">x</button>
           </div>
         </transition-group>
       </div>
@@ -25,9 +27,12 @@
 <script>
 
 export default {
-  name: 'App',
+  props: [
+    'orig_lesson'
+  ],
   data: function(){
     return {
+      lesson: {},
       questions: [
         {
           id: 1,
@@ -47,6 +52,10 @@ export default {
         }
       ]
     }
+  },
+  mounted(){
+    this.lesson = JSON.parse(this.orig_lesson);
+    this.questions = this.lesson.questions;
   },
   components: {
     
@@ -96,7 +105,7 @@ export default {
 }
 
 .questionDescription{
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 .btnAddQuestion{
@@ -119,18 +128,9 @@ export default {
   top: -20px;
   width: 40px;
   height: 40px;
-  border-radius: 100%;
-  border: 3px solid #ff8080;
-  background: red;
-  color: white;
-  font-size: 1.5rem;
 }
 
 .deleteAnswerButton{
-  border-radius: 100%;
-  border: 1px solid #ff8080;
-  background: red;
-  color: white;
   cursor: pointer;
 }
 

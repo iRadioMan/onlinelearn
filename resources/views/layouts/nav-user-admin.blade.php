@@ -5,8 +5,5 @@
     <a class="nav-link" href="{{route('managelessons.index')}}">Управление темами</a>
 </li>
 <li class="nav-item">
-    <a class="nav-link" href="#">Управление тестами</a>
-</li>
-<li class="nav-item">
     <a class="nav-link" href="#">Просмотр результатов</a>
 </li>

@@ -18,4 +18,11 @@ class Question extends Model
             return $value->correct;
         });
     }
+
+    public function toArray()
+    {
+        $arr = parent::toArray();
+        $arr['question_options'] = $this->question_options;
+        return $arr;
+    }
 }

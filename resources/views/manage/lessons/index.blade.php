@@ -36,7 +36,8 @@
             <td>{{$lesson->description}}</td>
             <td>{{$lesson->main_file}}</td>
             <td>
-                <a href="{{route('managelessons.edit', $lesson->id)}}" class="btn btn-outline-primary mb-3" target="_blank">Редактировать</a>
+                <a href="{{route('managelessons.edit', $lesson->id)}}" class="btn btn-outline-primary mb-3" target="_blank">Редактировать тему</a>
+                <a href="{{route('managequiz.edit', $lesson->id)}}" class="btn btn-outline-primary mb-3" target="_blank">Редактировать тест</a>
                 <a 
                 href="#" 
                 class="btn btn-outline-danger"
@@ -44,7 +45,7 @@
                 data-bs-target="#deleteModal" 
                 data-bs-delId="{{$lesson->id}}" 
                 data-bs-lessonName="{{$lesson->name}}"
-                >Удалить</a>
+                >Удалить тему</a>
             </td>
         </tr>
         @endforeach

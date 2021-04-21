@@ -17,65 +17,65 @@ class QuizSeeder extends Seeder
         DB::table('questions')->insert([
             [
                 'lesson_id' => 1,
-                'description' => 'Как объявляется переменная в C#?'
+                'description' => 'Что не входит в основные темы цикла занятий?'
             ],
             [
                 'lesson_id' => 1,
-                'description' => 'Можно ли объявить две переменные с одинаковыми именами?'
+                'description' => 'Какие средства используются для разработки?'
             ],
             [
                 'lesson_id' => 1,
-                'description' => 'Какие типы переменных существуют в C#?'
+                'description' => 'Что такое AVD?'
             ],
         ]);
         DB::table('question_options')->insert([
             [ // QUESTION 1
                 'correct' => false,
                 'question_id' => 1,
-                'description' => "variable a;"
+                'description' => "Анализ и проектирование программных решений"
             ],
             [
                 'correct' => false,
                 'question_id' => 1,
-                'description' => "a: variable;"
+                'description' => "Разработка настольного и мобильного приложений"
             ],
             [
                 'question_id' => 1,
-                'description' => "var a;",
+                'description' => "Разработка веб-приложения",
                 'correct' => true
             ], // END QUESTION 1 
 
             [ // QUESTION 2
-                'correct' => false,
+                'correct' => true,
                 'question_id' => 2,
-                'description' => "Если очень хочется, то можно"
-            ],
-            [
-                'question_id' => 2,
-                'description' => 'Нет',
-                'correct' => true
+                'description' => "Microsoft Visual Studio"
             ],
             [
                 'correct' => false,
                 'question_id' => 2,
-                'description' => 'Да',
+                'description' => 'Mono Develop'
+            ],
+            [
+                'correct' => true,
+                'question_id' => 2,
+                'description' => 'Android Studio',
                 
             ], //END QUESTION 2
 
             [ // QUESTION 3
                 'question_id' => 3,
-                'description' => 'int',
-                'correct' => true
+                'description' => 'Android Version Descriptor',
+                'correct' => false
             ],
             [
+                'correct' => true,
                 'question_id' => 3,
-                'description' => 'string',
-                'correct' => true
+                'description' => 'Android Virtual Device'                
             ],
             [
                 'correct' => false,
                 'question_id' => 3,
-                'description' => 'word',
+                'description' => 'Android Virtual Demo',
                 
             ], //END QUESTION 3
         ]);

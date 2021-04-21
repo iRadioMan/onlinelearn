@@ -34,4 +34,11 @@ class Lesson extends Model
         }
         return true;
     }
+    
+    public function toArray()
+    {
+        $arr = parent::toArray();
+        $arr['questions'] = $this->questions;
+        return $arr;
+    }
 }

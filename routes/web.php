@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\ManageLessonController;
+use App\Http\Controllers\ManageQuizController;
 use App\Http\Controllers\ManageRequestController;
 use App\Http\Controllers\QuizController;
 use App\Http\Controllers\RegisterController;
@@ -40,6 +41,7 @@ Route::middleware('auth')->group(function(){
             Route::resource('grouprequests', ManageRequestController::class);
             Route::prefix("manage")->name("manage")->group(function(){
                 Route::resource('lessons', ManageLessonController::class);
+                Route::resource('quiz', ManageQuizController::class);
             });
         });
     });
