@@ -27,8 +27,8 @@
         @foreach($lessons as $lesson)
         <tr>
             <th scope="row">{{$lesson->id}}</th>
-            <td>{{$lesson->name}}</td>
-            <td>{{$lesson->description}}</td>
+            <td style="max-width: 230px">{{$lesson->name}}</td>
+            <td style="max-width: 330px">{{$lesson->description}}</td>
             <td>{{$lesson->quiz_result ? $lesson->quizResult->correct_percentage . "% правильно" : "Не пройден"}}</td>
             <td>
                 <a href="{{route('lessons.show', $lesson->id)}}" class="btn btn-outline-primary">Открыть</a>

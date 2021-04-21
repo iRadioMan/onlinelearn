@@ -24,7 +24,7 @@
             <button class="btn btn-outline-danger" type="submit" data-bs-toggle="modal" data-bs-target="#logoutModal">Выйти</button>
 
             <div class="modal fade" id="glossaryModal" tabindex="-1">
-                <div class="modal-dialog modal-dialog-scrollable">
+                <div class="modal-dialog modal-dialog-scrollable" style="max-width: 700px">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">Глоссарий</h5>

@@ -36,7 +36,7 @@
             <td>{{$lesson->description}}</td>
             <td>{{$lesson->main_file}}</td>
             <td>
-                <a href="{{route('managelessons.edit', $lesson->id)}}" class="btn btn-outline-primary" target="_blank">Редактировать</a>
+                <a href="{{route('managelessons.edit', $lesson->id)}}" class="btn btn-outline-primary mb-3" target="_blank">Редактировать</a>
                 <a 
                 href="#" 
                 class="btn btn-outline-danger"

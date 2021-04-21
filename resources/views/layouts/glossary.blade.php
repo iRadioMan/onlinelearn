@@ -4,7 +4,7 @@
     <ul>
         @foreach (App\Models\Glossary::getAllTerms($letter) as $item)
         <li>
-            {{$item->term}} - {{$item->definition}} 
+            <b>{{$item->term}}</b><br>{{$item->definition}} 
         </li>
         @endforeach
     </ul>
