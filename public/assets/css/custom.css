@@ -1,22 +1,30 @@
-body{
+body {
     min-height: 100%;
     display: grid;
     grid-template-rows: auto 1fr auto;
 }
 
-.form-300px{
+.form-300px {
     max-width: 350px;
     margin: 0 auto;
 }
 
-.form-600px{
+.form-600px {
     max-width: 600px;
     margin: 0 auto;
 }
 
-.form-fullheight{
+.form-fullheight {
     min-height: 90%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.mainlogo {
+    height: 40px;
+}
+
+.welcome-pic {
+    zoom: 50%;
 }

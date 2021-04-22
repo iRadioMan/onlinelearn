@@ -31,4 +31,6 @@
     @endif
     @endauth
 
+    <img class="welcome-pic" src="/public/assets/img/online-learning.svg">
+
 @endsection
