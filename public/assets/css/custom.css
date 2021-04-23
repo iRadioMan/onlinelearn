@@ -28,3 +28,11 @@ body {
 .welcome-pic {
     zoom: 50%;
 }
+
+.managebtn {
+    width: 11rem;
+}
+
+.openbtn {
+    width: 8rem;
+}

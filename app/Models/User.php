@@ -53,4 +53,12 @@ class User extends Authenticatable
     public function getLastGroupRequestAttribute(){
         return UserGroupRequest::where('user_id', $this->id)->orderBy('created_at', 'desc')->first();
     }
+
+    public function quizResults(){
+        return $this->hasMany(QuizResult::class, "user_id");
+    }
+
+    public function isAdmin() {
+        return $this->is_admin == 1; 
+    }
 }

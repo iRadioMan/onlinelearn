@@ -7,6 +7,7 @@ use App\Http\Controllers\ManageQuizController;
 use App\Http\Controllers\ManageRequestController;
 use App\Http\Controllers\QuizController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\ViewResultsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,9 +40,14 @@ Route::middleware('auth')->group(function(){
     Route::middleware('auth.admin')->group(function(){
         Route::prefix('admin')->group(function(){
             Route::resource('grouprequests', ManageRequestController::class);
+           
             Route::prefix("manage")->name("manage")->group(function(){
                 Route::resource('lessons', ManageLessonController::class);
                 Route::resource('quiz', ManageQuizController::class);
+            });
+
+            Route::prefix("view")->name("view")->group(function(){
+                Route::resource('results', ViewResultsController::class);
             });
         });
     });

@@ -36,11 +36,11 @@
             <td>{{$lesson->description}}</td>
             <td>{{$lesson->main_file}}</td>
             <td>
-                <a href="{{route('managelessons.edit', $lesson->id)}}" class="btn btn-outline-primary mb-3" target="_blank">Редактировать тему</a>
-                <a href="{{route('managequiz.edit', $lesson->id)}}" class="btn btn-outline-primary mb-3" target="_blank">Редактировать тест</a>
+                <a href="{{route('managelessons.edit', $lesson->id)}}" class="btn btn-outline-primary managebtn mb-3" target="_blank">Редактировать тему</a>
+                <a href="{{route('managequiz.edit', $lesson->id)}}" class="btn btn-outline-primary managebtn mb-3" target="_blank">Редактировать тест</a>
                 <a 
                 href="#" 
-                class="btn btn-outline-danger"
+                class="btn btn-outline-danger managebtn"
                 data-bs-toggle="modal" 
                 data-bs-target="#deleteModal" 
                 data-bs-delId="{{$lesson->id}}" 

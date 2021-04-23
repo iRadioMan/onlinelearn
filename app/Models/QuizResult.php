@@ -14,4 +14,8 @@ class QuizResult extends Model
         'lesson_id',
         'correct_percentage',
     ];
+
+    public function lesson(){
+        return $this->belongsTo(Lesson::class, "lesson_id");
+    }
 }
