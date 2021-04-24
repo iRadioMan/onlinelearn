@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тема 4</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div class="text">
+        <h1><strong>Использование Windows Presentation Foundation (WPF) для создания интерактивных настольных приложений</strong></h1>
+
+		<p><strong>Cоздание нового проекта</strong></p>
+
+		<p><br />
+		<strong>1.</strong>&nbsp;Запустить среду разработки Visual Studio</p>
+
+		<p><img alt="" src="img/1.jpg" style="zoom:85%"/></p>
+
+		<p><strong>2.</strong>&nbsp;Выбрать &laquo;Создание проекта&raquo;</p>
+
+		<p><img alt="" src="img/2.jpg" style="border: solid; zoom: 60%"/></p>
+
+		<p><strong>3.</strong>&nbsp;Выбрать &laquo;Приложение WPF&raquo;</p>
+
+		<p><img alt="" src="img/3.jpg" style="border: solid; zoom: 60%"/></p>
+
+		<p><strong>4.</strong>&nbsp;Заполнить графу &laquo;Имя проекта&raquo;</p>
+
+		<p><img alt="" src="img/4.jpg" style="border: solid; zoom: 60%"/></p>
+
+		<p>При разработке интерфейсов разработчик может использовать две модели:&nbsp;<strong>оконную&nbsp;</strong>или&nbsp;<strong>страничную&nbsp;</strong>(в настоящее время используют чаще)<br />
+		<br />
+		<strong><strong>Оконная модель:</strong></strong></p>
+
+		<p><img alt="" src="img/5.jpg" style="zoom: 60%"/></p>
+
+		<p><strong>Страничная модель</strong></p>
+
+		<p><img alt="" src="img/6.jpg" style="zoom: 60%"/></p>
+
+		<h1><strong>Элементы управления в приложении</strong></h1>
+
+		<p>Интерфейс состоит из&nbsp;элементов управления, которые непосредственно взаимодействуют с&nbsp;пользователем или&nbsp;отображают какую-либо информацию</p>
+
+		<p><img alt="" src="img/7.jpg" style="zoom: 60%"/></p>
+
+		<p>Доступные элементы управления находятся на&nbsp;панели Toolbox</p>
+
+		<p><img alt="" src="img/8.jpg" style="zoom: 100%"/></p>
+
+		<h1><strong>Использование Windows Presentation Foundation (WPF) для создания интерактивных настольных приложений</strong></h1>
+
+		<p><strong>Контейнеры компановки</strong><br />
+		<br />
+		<strong>1. Grid</strong><br />
+		Наиболее мощный и&nbsp;часто используемый контейнер, похожий на&nbsp;таблицу. Он&nbsp;содержит столбцы и&nbsp;строки, количество которых можно задать. Для определения строк используется свойство RowDefinition,</p>
+
+		<p><img alt="" src="img/9.jpg" style="zoom: 70%"/></p>
+
+		<p>а для столбцов &mdash; ColumnDefinition</p>
+
+		<p><img alt="" src="img/10.jpg" style="zoom: 70%"/></p>
+
+		<p><strong>Важно</strong></p>
+
+		<p>Для привязки элемента управления к&nbsp;конкретной ячейке необходимо использовать свойства Grid.Column и&nbsp;Grid.Row, причем нумерация строк и&nbsp;столбцов начинается с&nbsp;нуля</p>
+
+		<p><img alt="" src="img/11.jpg" style="zoom: 70%"/></p>
+
+		<p><strong>2. StackPanel</strong><br />
+		Позволяет размещать элементы управления поочередно друг за&nbsp;другом</p>
+
+		<p><img alt="" src="img/12.jpg" style="zoom: 70%"/></p>
+
+		<p>Также существует возможность выбора ориентации размещения с&nbsp;помощью свойства Orientation</p>
+
+		<h1><strong>Стилизация приложения</strong></h1>
+
+		<p>Перед стилизацией разметим окно приложения с&nbsp;помощью контейнера Grid</p>
+
+		<p><img alt="" src="img/13.jpg" style="zoom: 70%"/></p>
+
+		<p><strong>Добавим логотип приложения в&nbsp;Resourses</strong><br />
+		<br />
+		<strong>1.&nbsp;</strong>Открыть свойства проекта</p>
+
+		<p><img alt="" src="img/14.jpg" style="zoom: 70%"/></p>
+
+		<p><strong>2.&nbsp;</strong>Открыть вкладку Ресурсы</p>
+
+		<p><img alt="" src="img/15.jpg" style="zoom: 70%"/></p>
+
+		<p><strong>3.&nbsp;</strong>Выбрать список изображений</p>
+
+		<p><img alt="" src="img/16.jpg" style="zoom: 100%"/></p>
+
+		<p><strong>4.&nbsp;</strong>Перетащить логотип в открывшееся окно</p>
+
+		<p><img alt="" src="img/17.jpg" style="zoom: 100%"/></p>
+
+		<p><strong>5.&nbsp;</strong>Установить значение поля Действие при сборке&mdash; Resource</p>
+
+		<p><img alt="" src="img/18.jpg" style="zoom: 70%"/></p>
+
+		<p>Для отображения логотипа используем элемент Image.</p>
+		
+		<p><img alt="" src="img/18-1.jpg"/></p>
+
+		<p>Установим заголовок приложения.</p>
+		
+		<p><img alt="" src="img/18-2.jpg" /></p>
+
+		<p>Установим цвета для верхней и&nbsp;нижней частей.</p>
+		
+		<p><img alt="" src="img/18-3.jpg" style="zoom: 65%"/></p>
+
+		<h1><strong>Создание навигации</strong></h1>
+
+		<p>Для оконной навигации основным элементом является страница&nbsp;&mdash; Page, которая должна находиться в&nbsp;каком-либо контейнере. Для этого в&nbsp;основном окне приложения разместим элемент Frame, где будут собраны страницы приложения</p>
+
+		<p><img alt="" src="img/19.jpg" style="zoom: 65%"/></p>
+
+		<p>Далее создадим страницу, которая будет отображаться при первом запуске приложения, и&nbsp;вторую страницу для тестирования навигации между ними<br />
+		<br />
+		<strong>1.</strong>&nbsp;Правой кнопкой жмем на&nbsp;название проекта&nbsp;&mdash; Добавить&nbsp;&mdash; Страница</p>
+
+		<p><strong>2.&nbsp;</strong>Указываем ее&nbsp;название, например, RentalServicePage</p>
+
+		<p><strong>3.&nbsp;</strong>Размещаем на&nbsp;странице одну кнопку</p>
+
+		<p><strong>4.</strong>&nbsp;Создаем еще одну страницу, повторив пункт 1<br />
+		<br />
+		<strong>5.&nbsp;</strong>Даем ей&nbsp;название AddEditPage<br />
+		<br />
+		<strong>6.&nbsp;</strong>Размещаем в&nbsp;ней TextBlock</p>
+
+		<p><img alt="" src="img/20.jpg" style="zoom: 65%"/></p>
+
+		<p>Для того, чтобы использовать созданные элементы в&nbsp;приложении, необходимо указывать для них имена. Имя&nbsp;&mdash; это тоже одно из&nbsp;свойств, по&nbsp;которому можно обращаться к&nbsp;тем или иным элементам в&nbsp;коде. Укажем имя фрейма:</p>
+
+		<p><img alt="" src="img/21.jpg" style="zoom: 100%"/></p>
+
+		<p>Для отображения первой страницы необходимо прописать следующий код (для перехода в&nbsp;нужное окно нажмите F7):&nbsp;<em>&#39;MainFrame.Navigate(new RentalServicePage());&#39;</em></p>
+
+		<p><img alt="" src="img/21-1.jpg" style="zoom: 65%"/></p>
+		
+		<h1><strong>Свойства элементов управления</strong></h1>
+
+		<p>Например:</p>
+
+		<ul>
+			<li>Background&nbsp;&mdash; меняет фоновый цвет элемента</li>
+		</ul>
+
+		<p>Все свойства элемента можно посмотреть в&nbsp;окне Properties. Там&nbsp;же можно найти все возможные события, доступные для выбранного элемента управления.</p>
+
+		<p><img alt="" src="img/22.jpg" style="zoom: 65%"/></p>
+
+		<p>Для взаимодействия с&nbsp;кнопкой будем использовать событие Click(). С&nbsp;помощью него мы&nbsp;сможем перейти с&nbsp;первой страницы на&nbsp;вторую. Для создания события пропишем соответствующее значение в&nbsp;верстке:</p>
+
+		<p><img alt="" src="img/23.jpg" /></p>
+
+		<p>Чтобы добраться до&nbsp;MainFrame для навигации, необходимо создать новый класс:<br />
+		<br />
+		<strong>1.</strong>&nbsp;Правой кнопкой на&nbsp;название проекта&nbsp;&mdash; Добавить&nbsp;&mdash; Класс</p>
+
+		<p><strong>2.&nbsp;</strong>Вводим название класса Manager</p>
+
+		<p><strong>3.&nbsp;</strong>Создаем статичное свойство MainFrame</p>
+		
+		<p><img alt="" src="img/23-2.jpg" style="zoom: 100%"/></p>
+
+		<p><strong>4.&nbsp;</strong>Присваиваем ему значение в MainWindow</p>
+		
+		<p><img alt="" src="img/23-3.jpg" style="zoom: 95%"/></p>
+
+		<p>Теперь можем создать навигацию на&nbsp;главной странице</p>
+
+		<p><img alt="" src="img/24.jpg" style="zoom: 95%"/></p>
+
+		<p>Добавим кнопку &laquo;Назад&raquo; на&nbsp;главном окне приложения. Установим для нее следующие свойства:</p>
+
+		<ol>
+			<li>Name</li>
+			<li>Width, Height</li>
+			<li>HorizontalAlignment, Margin</li>
+		</ol>
+
+		<p><img alt="" src="img/25.jpg" style="zoom: 65%"/></p>
+
+		<p>Далее вновь создаем обработчик события нажатия на кнопку. Используем следующую логику: обращаемся к&nbsp;менеджеру (Manager), к&nbsp;фрейму (MainFrame) и&nbsp;вызываем метод GoBack</p>
+
+		<p><img alt="" src="img/26.jpg" style="zoom: 75%"/></p>
+
+		<p>Но она не нужна на главном экране. Чтобы скрыть ее, воспользуемся событием ContentRendered</p>
+
+		<p><img alt="" src="img/27.jpg" style="zoom: 65%"/></p>
+
+		<p>В&nbsp;коде пропишем:</p>
+
+		<p><img alt="" src="img/28.jpg" style="zoom: 70%"/></p>
+
+		<p>А&nbsp;чтобы скрыть стандартное навигационное меню, воспользуемся свойством фрейма&nbsp;&mdash;&nbsp;<em>NavigationUIVisibility=&#39;Hidden&#39;</em></p>
+
+		<p><img alt="" src="img/29.jpg" style="zoom: 65%"/></p>
+
+		<h1><strong>Глобальные стили приложения</strong></h1>
+
+		<p>Для большинства созданных элементов мы&nbsp;использовали похожий набор свойств: ширина, высота, размер шрифта, отступы и&nbsp;др. Чтобы применять определенные наборы свойств для элементов, WPF предлагает использование глобальных стилей в&nbsp;проекте. Чтобы их&nbsp;создавать в&nbsp;проекте, есть файл App.xaml. Используем тег Style и&nbsp;свойство TargetType, чтобы указать, для каких элементов предназначен данный стиль.</p>
+
+		<p><img alt="" src="img/30.jpg" style="zoom: 75%"/></p>
+
+		<p>Внутри тега Style используем тег Setter. В&nbsp;нем установим необходимые свойства:</p>
+
+		<p><img alt="" src="img/31.jpg" style="zoom: 75%"/></p>
+
+		<p>И&nbsp;теперь удалим написанные ранее свойства элементов, для которых есть стиль</p>
+
+		<p><img alt="" src="img/32.jpg" /></p>
+
+		<h1>Итоги</h1>
+
+		<p>Мы&nbsp;получили краткое руководство по&nbsp;первым шагам создания приложения на&nbsp;платформе WPF. При компоновке макета приложения приходится писать некоторое количество кода, но&nbsp;механизмы, заложенные в&nbsp;данную платформу, значительно сокращают время на&nbsp;разработку дизайна и&nbsp;логики приложения в&nbsp;целом.</p>
+
+    </div>
+</body>
+</html>
