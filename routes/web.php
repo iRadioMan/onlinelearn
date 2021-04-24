@@ -7,6 +7,7 @@ use App\Http\Controllers\ManageQuizController;
 use App\Http\Controllers\ManageRequestController;
 use App\Http\Controllers\QuizController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\ViewProgressController;
 use App\Http\Controllers\ViewResultsController;
 use Illuminate\Support\Facades\Route;
 
@@ -36,6 +37,7 @@ Route::middleware('auth')->group(function(){
 
     Route::resource('lessons', LessonController::class);
     Route::resource('quiz', QuizController::class);
+    Route::resource('progress', ViewProgressController::class);
 
     Route::middleware('auth.admin')->group(function(){
         Route::prefix('admin')->group(function(){

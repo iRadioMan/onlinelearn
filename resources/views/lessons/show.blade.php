@@ -15,9 +15,12 @@
             <h1>{{$lesson->name}}</h1>
             <p>{{$lesson->description}}</p>
         </div>
-        <a target="_blank" 
-            href="{{route('quiz.show', $lesson->id)}}" 
-            class="btn btn-outline-primary mt-3" style="flex-shrink: 0">Пройти тест</a>
+
+        @if(!$nextLessonIsAccessible)
+            <a target="_blank" href="{{route('quiz.show', $lesson->id)}}" 
+                class="btn btn-outline-primary mt-3" style="flex-shrink: 0">Пройти тест</a>
+        @endif
+        
     </div>
 </div>
 

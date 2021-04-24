@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Lesson;
 use App\Models\AppSettings;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class LessonController extends Controller
+class ViewProgressController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,16 +16,17 @@ class LessonController extends Controller
      */
     public function index()
     {
-        $lessons = Lesson::all()->filter(function($item){
-            //return $item->accessible;
-            return true; // ВРЕМЕННО ДЛЯ ОТЛАДКИ!! УБРАТЬ ПОСЛЕ ОКОНЧАНИЯ РАЗРАБОТКИ
-        });
-        
-        return view('lessons.index', [
-            'lessons' => $lessons,
-            'acceptable_percentage' => AppSettings::where('name', 'acceptable_percentage')->first()->value
-            ]
-        );
+        $lessonsCount = Lesson::all()->count();
+
+        $availableLessonsCount = Lesson::all()->filter(function($item){
+            return $item->accessible;
+        })->count();
+
+        return view("view/progress/index", [
+            'user' => Auth::User(),
+            'lessonsCount' => $lessonsCount,
+            'completedLessonsCount' => $availableLessonsCount - 1
+        ]);
     }
 
     /**
@@ -54,14 +56,9 @@ class LessonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Lesson $lesson)
+    public function show($id)
     {
-        $nextLessonIsAccesible = Lesson::where('id', $lesson->id + 1)->first()->accessible;
-        
-        return view('lessons.show', [
-            'lesson' => $lesson,
-            'nextLessonIsAccessible' => $nextLessonIsAccesible
-        ]);
+        //
     }
 
     /**

@@ -23,7 +23,7 @@
                         @foreach($user->quizResults as $result)
                             <div class="card p-2 my-2">
                                 <p><strong>Тема: </strong>{{$result->lesson->name}}</p>
-                                <p><strong>Результат теста: </strong>{{$result->correct_percentage}}% правильно</p>
+                                <p class="mb-1"><strong>Результат теста: </strong>{{$result->correct_percentage}}% правильно</p>
                             </div>
                         @endforeach
                     </td>
