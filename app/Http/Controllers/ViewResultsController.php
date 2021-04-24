@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ResultsExport;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ViewResultsController extends Controller
 {
@@ -24,7 +26,7 @@ class ViewResultsController extends Controller
      */
     public function create()
     {
-        //
+        return Excel::download(new ResultsExport, 'student_results.xlsx');
     }
 
     /**

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ExportResultsController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\ManageLessonController;
 use App\Http\Controllers\ManageQuizController;
@@ -51,6 +52,8 @@ Route::middleware('auth')->group(function(){
             Route::prefix("view")->name("view")->group(function(){
                 Route::resource('results', ViewResultsController::class);
             });
+
+            Route::resource('results/export', ViewResultsController::class);
         });
     });
 });

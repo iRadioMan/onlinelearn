@@ -5,6 +5,8 @@
 @section('content')
 <div class="d-flex justify-content-between flex-wrap align-items-center mb-4">
     <h1>Просмотр результатов</h1>
+    <a target="_blank" href="{{route('export.create')}}" 
+        class="btn btn-outline-primary mt-3 managebtn" style="flex-shrink: 0">Экспорт в Excel</a>
 </div>
 
 <table class="table align-middle">
