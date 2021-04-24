@@ -7,17 +7,19 @@
     <h1>Прогресс обучения</h1>
 </div>
 
-<div class="progress">
-    <div class="progress-bar progress-bar-striped bg-info" 
-        role="progressbar" 
-        style="width: {{$completedLessonsCount / $lessonsCount * 100}}%" 
-        aria-valuenow="{{$completedLessonsCount}}" 
-        aria-valuemin="0" 
-        aria-valuemax="{{$lessonsCount}}"></div>
+<div class="mt-4">
+    <div class="progress">
+        <div class="progress-bar student-progress-bar progress-bar-striped bg-info" 
+            role="progressbar" 
+            style="width: {{$completedLessonsCount / $lessonsCount * 100}}%" 
+            aria-valuenow="{{$completedLessonsCount}}" 
+            aria-valuemin="0" 
+            aria-valuemax="{{$lessonsCount}}"></div>
+    </div>
+    <h4 class="student-progress-text mt-2">Пройдено тем: {{$completedLessonsCount}} из {{$lessonsCount}}</h4>
 </div>
-<h4 class="mt-2">Пройдено тем: {{$completedLessonsCount}} из {{$lessonsCount}}</h4>
 
-<table class="table align-middle mt-4">
+<table class="table align-middle mt-5">
     <thead>
       <tr>
         <th scope="col">Результаты</th>

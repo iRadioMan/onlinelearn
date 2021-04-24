@@ -17,7 +17,7 @@
         </div>
         <footer class="navbar navbar-dark bg-dark text-white py-3">
             <div class="container d-flex justify-content-center">
-                <span>{{ config('app.name') }} © 2021</span>
+                <span>{{ config('app.name') }} © Илья Дудиков, 2021</span>
             </div>
         </footer>
     </body>

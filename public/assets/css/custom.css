@@ -26,7 +26,7 @@ body {
 }
 
 .welcome-pic {
-    zoom: 50%;
+    width: 15rem;
 }
 
 .managebtn {
@@ -35,4 +35,27 @@ body {
 
 .openbtn {
     width: 8rem;
+}
+
+@keyframes progressbar-anim {
+    from {
+        width: 0%;
+    }
+}
+
+@keyframes progresstext-anim {
+    from {
+        opacity: 0%;
+    }
+    to {
+        opacity: 100%
+    }
+}
+
+.student-progress-bar {
+    animation: progressbar-anim 1s ease;
+}
+
+.student-progress-text {
+    animation: progresstext-anim 1s ease;
 }

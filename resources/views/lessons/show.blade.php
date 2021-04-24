@@ -12,13 +12,13 @@
     </nav>
     <div class="d-flex align-items-start justify-content-between">
         <div>
-            <h1>{{$lesson->name}}</h1>
+            <h4>{{$lesson->name}}</h4>
             <p>{{$lesson->description}}</p>
         </div>
 
         @if(!$nextLessonIsAccessible)
             <a target="_blank" href="{{route('quiz.show', $lesson->id)}}" 
-                class="btn btn-outline-primary mt-3" style="flex-shrink: 0">Пройти тест</a>
+                class="btn btn-outline-primary mt-3 managebtn" style="flex-shrink: 0">Пройти тест</a>
         @endif
         
     </div>

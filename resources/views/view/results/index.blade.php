@@ -18,13 +18,10 @@
         @foreach($users as $user)
             @if(!$user->isAdmin())
                 <tr>
-                    <td>{{$user->fullname}}</td>
+                    <td class="fs-5">{{$user->fullname}}</td>
                     <td>
                         @foreach($user->quizResults as $result)
-                            <div class="card p-2 my-2">
-                                <p><strong>Тема: </strong>{{$result->lesson->name}}</p>
-                                <p class="mb-1"><strong>Результат теста: </strong>{{$result->correct_percentage}}% правильно</p>
-                            </div>
+                            <p class="mt-2"><strong>Тема #{{$result->lesson->id}}</strong> - {{$result->correct_percentage}}%</p>
                         @endforeach
                     </td>
                 </tr>

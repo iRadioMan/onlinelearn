@@ -56,8 +56,8 @@ class LessonController extends Controller
      */
     public function show(Lesson $lesson)
     {
-        $nextLessonIsAccesible = Lesson::where('id', $lesson->id + 1)->first()->accessible;
-        
+        $nextLessonIsAccesible = Lesson::where('id', '>', $lesson->id)->first()->accessible;
+
         return view('lessons.show', [
             'lesson' => $lesson,
             'nextLessonIsAccessible' => $nextLessonIsAccesible
