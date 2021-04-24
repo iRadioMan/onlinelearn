@@ -20,15 +20,32 @@ class ResultsExport implements FromCollection, WithHeadings, WithColumnWidths, W
     */
     public function collection()
     {
-        return QuizResult::all();
+        /*$users = User::all()->sortBy('fullname');
+        $userResults = collect([]);
+
+        foreach($users as $user) {
+            $userResults = $userResults->merge($user->quizResults());
+        }
+
+        return $userResults;*/
+
+        $results = QuizResult::all();
+        $results = $results->map(function($item){
+            $item['user_fullname'] = $item->user->fullname;
+            return $item;
+        });
+
+        $results = $results->sortBy('user_fullname');
+        
+        return $results;
     }
 
     public function map($result): array
     {
         return [
             $result->id,
-            User::where('id', $result->user_id)->first()->fullname,
-            Lesson::where('id', $result->lesson_id)->first()->name,
+            $result->user->fullname,
+            $result->lesson->name,
             $result->correct_percentage,
             $result->updated_at
         ];

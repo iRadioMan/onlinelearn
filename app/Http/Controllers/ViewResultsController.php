@@ -16,7 +16,7 @@ class ViewResultsController extends Controller
      */
     public function index()
     {
-        return view("view/results/index", ['users' => User::all()]);
+        return view("view/results/index", ['users' => User::all()->sortBy('fullname')]);
     }
 
     /**

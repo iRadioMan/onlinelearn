@@ -15,7 +15,7 @@
     </div>
     @endif
 
-    <table class="table">
+    <table class="table align-middle">
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -40,14 +40,14 @@
                         data-bs-fullname="{{$groupRequest->user->fullname}}" 
                         data-bs-requestid="{{$groupRequest->id}}" 
                         data-bs-groupname="{{$groupRequest->group->name}}" 
-                        class="mx-1 btn btn-outline-success">Принять</div>
+                        class="mx-1 my-1 btn btn-outline-success">Принять</div>
                     <button 
                     data-bs-toggle="modal" 
                     data-bs-target="#rejectModal" 
                     data-bs-fullname="{{$groupRequest->user->fullname}}" 
                     data-bs-requestid="{{$groupRequest->id}}" 
                     data-bs-groupname="{{$groupRequest->group->name}}" 
-                    class="mx-1 btn btn-outline-danger">Отклонить</div>
+                    class="mx-1 my-1 btn btn-outline-danger">Отклонить</div>
                     
                     @endif
 

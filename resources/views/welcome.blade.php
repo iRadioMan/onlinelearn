@@ -16,7 +16,7 @@
         !Illuminate\Support\Facades\Auth::user()->inGroup() && 
         Illuminate\Support\Facades\Auth::user()->lastGroupRequest
         )
-    <div class="card p-4">
+    <div class="card p-4 mb-4">
         <p>Ваш аккаунт ожидает подтверждения.</h3>
         <div>
             <span>Группа:</span>
