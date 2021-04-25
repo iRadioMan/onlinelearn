@@ -6,6 +6,10 @@
     @guest
     <p>Добро пожаловать на главную страницу электронного пособия по подготовке к демоэкзамену для направления ИСиП.</p>
     <p>Пожалуйста, авторизуйтесь или зарегистрируйтесь.</p>
+
+    <div class="card p-2 welcome-pic">
+        <img src="/public/assets/img/online-learning.svg">
+    </div>
     @endguest
 
     @auth
@@ -28,11 +32,14 @@
             @endcomponent
         @endif
     </div>
-    @endif
-    @endauth
+    @else
 
     <div class="card p-2 welcome-pic">
         <img src="/public/assets/img/online-learning.svg">
     </div>
+        
+    @endif
+
+    @endauth
 
 @endsection

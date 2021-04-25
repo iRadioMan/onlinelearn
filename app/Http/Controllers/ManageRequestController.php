@@ -14,7 +14,7 @@ class ManageRequestController extends Controller
      */
     public function index()
     {
-        $groupRequests = UserGroupRequest::orderBy('created_at', 'desc')->get();
+        $groupRequests = UserGroupRequest::whereIn('status_id', [1])->orderBy('created_at', 'desc')->get();
         return view('grouprequests.index', ['groupRequests' => $groupRequests]);
     }
 

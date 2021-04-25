@@ -7,7 +7,9 @@
 @endsection
 
 @section('content')
-    <h1>Управление заявками</h1>
+    <div class="d-flex justify-content-between flex-wrap align-items-center mb-4">
+        <h1>Управление заявками</h1>
+    </div>
 
     @if(session('success'))
     <div class="alert alert-success" role="alert">
@@ -40,14 +42,16 @@
                         data-bs-fullname="{{$groupRequest->user->fullname}}" 
                         data-bs-requestid="{{$groupRequest->id}}" 
                         data-bs-groupname="{{$groupRequest->group->name}}" 
-                        class="mx-1 my-1 btn btn-outline-success">Принять</div>
+                        class="mx-1 my-1 btn btn-outline-success">Принять
+                    </button>
                     <button 
-                    data-bs-toggle="modal" 
-                    data-bs-target="#rejectModal" 
-                    data-bs-fullname="{{$groupRequest->user->fullname}}" 
-                    data-bs-requestid="{{$groupRequest->id}}" 
-                    data-bs-groupname="{{$groupRequest->group->name}}" 
-                    class="mx-1 my-1 btn btn-outline-danger">Отклонить</div>
+                        data-bs-toggle="modal" 
+                        data-bs-target="#rejectModal" 
+                        data-bs-fullname="{{$groupRequest->user->fullname}}" 
+                        data-bs-requestid="{{$groupRequest->id}}" 
+                        data-bs-groupname="{{$groupRequest->group->name}}" 
+                        class="mx-1 my-1 btn btn-outline-danger">Отклонить
+                    </button>
                     
                     @endif
 
