@@ -19,6 +19,15 @@
     <h4 class="student-progress-text mt-2">Пройдено тем: {{$completedLessonsCount}} из {{$lessonsCount}}</h4>
 </div>
 
+@if($completedLessonsCount == $lessonsCount)
+    <div class="card text-white bg-success mt-4">
+        <div class="card-header">Обучение завершено</div>
+        <div class="card-body">
+            <h5 class="card-text">Поздравляем с успешным завершением обучения! Сообщите об этом своему преподавателю</h5>
+        </div>
+    </div>
+@endif
+
 <table class="table align-middle mt-5">
     <thead>
       <tr>

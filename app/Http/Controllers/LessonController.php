@@ -15,16 +15,19 @@ class LessonController extends Controller
      */
     public function index()
     {
-        $lessons = Lesson::all()->filter(function($item){
-            //return $item->accessible;
-            return true; // ВРЕМЕННО ДЛЯ ОТЛАДКИ!! УБРАТЬ ПОСЛЕ ОКОНЧАНИЯ РАЗРАБОТКИ
-        });
+        $allLessonsCount = Lesson::all()->count();
+
+        $availableLessons = Lesson::all()->filter(function($item){
+            return $item->accessible;
+        });        
+
+        $allLessonsCompleted = ($allLessonsCount == $availableLessons->count()) ? true : false;
         
         return view('lessons.index', [
-            'lessons' => $lessons,
-            'acceptable_percentage' => AppSettings::where('name', 'acceptable_percentage')->first()->value
-            ]
-        );
+            'lessons' => $availableLessons,
+            'acceptable_percentage' => AppSettings::where('name', 'acceptable_percentage')->first()->value,
+            'allLessonsCompleted' => $allLessonsCompleted            
+        ]);
     }
 
     /**
@@ -60,14 +63,17 @@ class LessonController extends Controller
         
         if($nextLesson) {
             $nextLessonIsAccesible = Lesson::where('id', '>', $lesson->id)->first()->accessible;
+            $allLessonsCompleted = false;
         }
         else {
-            $nextLessonIsAccesible = false;
+            $nextLessonIsAccesible = true;
+            $allLessonsCompleted = true;
         }
 
         return view('lessons.show', [
             'lesson' => $lesson,
-            'nextLessonIsAccessible' => $nextLessonIsAccesible
+            'nextLessonIsAccessible' => $nextLessonIsAccesible,
+            'allLessonsCompleted' => $allLessonsCompleted
         ]);
     }
 

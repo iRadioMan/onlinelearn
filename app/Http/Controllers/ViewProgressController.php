@@ -22,10 +22,18 @@ class ViewProgressController extends Controller
             return $item->accessible;
         })->count();
 
+        if ($availableLessonsCount == $lessonsCount)
+        {
+            $completedLessonsCount = $availableLessonsCount;
+        }
+        else {
+            $completedLessonsCount = $availableLessonsCount - 1;
+        }
+
         return view("view/progress/index", [
             'user' => Auth::User(),
             'lessonsCount' => $lessonsCount,
-            'completedLessonsCount' => $availableLessonsCount - 1
+            'completedLessonsCount' => $completedLessonsCount
         ]);
     }
 
