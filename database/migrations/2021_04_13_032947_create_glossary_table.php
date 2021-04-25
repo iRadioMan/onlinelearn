@@ -16,7 +16,7 @@ class CreateGlossaryTable extends Migration
         Schema::create('glossary', function (Blueprint $table) {
             $table->id();
             $table->string('term');
-            $table->string('definition');
+            $table->text('definition');
             $table->timestamps();
         });
     }

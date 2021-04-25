@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тема 5</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div class="text">
+        <p>Тему работы с&nbsp;базой данных в&nbsp;приложении будем рассматривать на&nbsp;примере отображения, добавления, редактирования и&nbsp;удаления данных. Для отображения определенных данных система обращается к&nbsp;базе данных, получает ответ, а&nbsp;затем преобразует его в&nbsp;удобный для пользователя вид, который настраивает разработчик. Для работы с&nbsp;базой данных в&nbsp;приложении мы&nbsp;будем использовать Entity Framework, который позволяет работать с&nbsp;базой данных через объектно-ориентированный подход. Он&nbsp;предоставляет ряд существенных преимуществ: вам не&nbsp;нужно беспокоиться о&nbsp;коде доступа к&nbsp;данным, а&nbsp;также знать детали работы СУБД SQL Server и&nbsp;синтаксиса языка структурированных запросов SQL. Вместо этого вы&nbsp;работает с&nbsp;таблицами базы данных как с&nbsp;классами С#, а&nbsp;с&nbsp;полями этих таблиц, как со&nbsp;свойствами классов, используя вместо SQL запросов более удобный подход&nbsp;&mdash; LINQ. Entity Framework берет на&nbsp;себя обязанности по&nbsp;преобразованию кода C# в&nbsp;SQL инструкции.</p>
+
+		<h1><strong>Использование Windows Presentation Foundation (WPF) для создания интерактивных настольных приложений</strong></h1>
+
+		<p><strong>1.</strong>&nbsp;Создадим новый элемент</p>
+
+		<p><img alt="" src="img/1.jpg" /></p>
+
+		<p><strong>2.</strong>&nbsp;Выбираем ADO.NET Entity Data Model и даем ей название BaseModel</p>
+
+		<p><img alt="" src="img/2.jpg" /></p>
+
+		<p><strong>3.</strong>&nbsp;Выбираем &quot;Конструктор EF из базы данных&quot;</p>
+
+		<p><img alt="" src="img/3.jpg" /></p>
+
+		<p><strong>4.</strong>&nbsp;Создаем новое подключение и&nbsp;выбираем базу данных</p>
+
+		<p><img alt="" src="img/4.jpg" /></p>
+
+		<p><strong>5.</strong>&nbsp;Нажимаем Далее</p>
+
+		<p><img alt="" src="img/5.jpg" /></p>
+
+		<p><strong>6.</strong>&nbsp;Нажимаем Далее</p>
+
+		<p><img alt="" src="img/6.jpg" /></p>
+
+		<p><strong>7.</strong>&nbsp;Выбираем все таблицы из&nbsp;списка</p>
+
+		<p><img alt="" src="img/7.jpg" /></p>
+
+		<p><strong>8.</strong>&nbsp;Модель готова</p>
+
+		<p><img alt="" src="img/8.jpg" /></p>  
+
+		<h1><strong>Обращение к модели данных. Паттерн SingleTone. Чтение, добавление, редактирование, удаление данных</strong></h1>
+
+		<p><strong>1.</strong>&nbsp;Открываем файл BaseModel.Context.cs</p>
+
+		<p><img alt="" src="img/9.jpg" /></p>
+
+		<p><strong>2.</strong>&nbsp;Добавляем приватное статичное поле, которое будет контекстом</p>
+
+		<p><img alt="" src="img/10.jpg" /></p>
+
+		<p><strong>3.</strong>&nbsp;Добавляем метод получения экземпляра этого контекста</p>
+
+		<p><img alt="" src="img/11.jpg" /></p>
+
+		<p><strong>4.</strong>&nbsp;Для отображения данных открываем страницу RentalServicePage.xaml</p>
+
+		<p><img alt="" src="img/12.jpg" /></p>
+
+		<p><strong>5.</strong>&nbsp;Размечаем Grid на две части</p>
+
+		<p><img alt="" src="img/13.jpg" /></p>
+
+		<p><strong>6.</strong>&nbsp;Cписок данных выводится по&nbsp;столбцам, которые прописывает разработчик. Устанавливаем их&nbsp;с&nbsp;помощью свойства DataGrid.Columns, которое и&nbsp;описывает набор столбцов.</p>
+
+		<ul>
+			<li>DataGridTextColumn для текстовых столбцов</li>
+			<li>DataGridTemplateColumn для более сложного представления данных, например, кнопки</li>
+		</ul>
+
+		<p><img alt="" src="img/14.jpg" /></p>
+
+		<p><strong>7.</strong>&nbsp;Далее загрузим список автомобилей&nbsp;в коде в таблицу:<br />
+		a) Нажимаем F7<br />
+		b) Обращаемся к контексту модели</p>
+
+		<p><img alt="" src="img/15.jpg" /></p>
+
+		<p><strong>8.</strong>&nbsp;Пробуем запустить программу и видим набор данных уже в приложении</p>
+
+		<p><img alt="" src="img/16.jpg" /></p>
+
+		<p><strong>9.</strong>&nbsp;Для отключения загрузки всех свойств объектов, необходимо прописать AuroGenerateColumns=&quot;False&quot; и&nbsp;IsReadOnly=&quot;True&quot;</p>
+
+		<p><img alt="" src="img/17.jpg" /></p>
+		
+		<p><strong>10.</strong>&nbsp;Также добавим кнопки для добавления и&nbsp;удаления во&nbsp;второй строке сетки. Дадим им&nbsp;имена и&nbsp;обработаем нажатия</p>
+
+		<p><img alt="" src="img/18.jpg" /></p>
+
+		<p><strong>11.</strong>&nbsp;Информация об&nbsp;автомобилях может меняться, поэтому важно реализовать функции добавления, редактирования и&nbsp;удаления. Для этого используем уже созданную нами вторую страницу, добавив необходимые элементы управления</p>
+
+		<p><br />
+		a) Сверстаем сетку, состоящую из трех строк и двух столбцов<br />
+		b) Разместим элементы для ввода данных:</p>
+
+		<ul>
+			<li>Текстовые блоки для отображения подсказок, что именно вводить</li>
+		</ul>
+
+		<p><img alt="" src="img/19.jpg" /></p>
+
+		<ul>
+			<li>TextBox для ввода</li>
+		</ul>
+
+		<p><img alt="" src="img/20.jpg" />​</p>
+
+		<p>c) Устанавливаем максимальное число символов для текст-боксов равных максимальному числу символов в&nbsp;базе данных</p>
+
+		<p><img alt="" src="img/21.jpg" /></p>
+
+		<p>d) Добавим кнопку для сохранения изменений, дадим ей&nbsp;имя и&nbsp;обработаем нажатие</p>
+
+		<p><img alt="" src="img/22.jpg" /></p>
+		
+		<p><strong>12.&nbsp;<strong>И, наконец, сделаем переход на&nbsp;страницу добавления со&nbsp;страницы списка автомобилей</strong></strong></p>
+
+		<p><img alt="" src="img/23.jpg" /></p>
+
+		<p><strong>13.</strong>&nbsp;Проверяем работоспособность</p>
+
+		<p><img alt="" src="img/24.jpg" /></p>
+
+		<p><img alt="" src="img/25.jpg" /></p>
+
+		<h1>Итоги</h1>
+
+		<p>Мы&nbsp;познакомились с&nbsp;механизмом работы Entity Framework и&nbsp;отобразили данные в&nbsp;DataGrid. В&nbsp;следующей части мы&nbsp;поработаем над функциями добавления и&nbsp;редактирования.</p>
+
+    </div>
+</body>
+</html>
