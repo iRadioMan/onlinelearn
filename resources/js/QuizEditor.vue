@@ -1,6 +1,5 @@
 <template>
   <div>
-    <button type="button" class="btnAddQuestion btn btn-outline-primary" @click="addQuestion">Добавить вопрос</button>
     <transition-group name="list" tag="div">
       <div class="questionCard" v-for="(question, itemId) in questions" :key="question.id">
         <div class="questionManage">
@@ -15,12 +14,13 @@
           <div class="my-2" v-for="(question_option, qoId) in question.question_options" :key="question_option.id">
             <input :name="'questions['+ itemId +'][question_options]['+ qoId +'][id]'" type="hidden" :value="question_option.id">
             <input :name="'questions['+ itemId +'][question_options]['+ qoId +'][correct]'" type="checkbox" v-model="question_option.correct">
-            <input :name="'questions['+ itemId +'][question_options]['+ qoId +'][description]'" type="text" v-model="question_option.description">
+            <input :name="'questions['+ itemId +'][question_options]['+ qoId +'][description]'" type="text" class="questionDescription" v-model="question_option.description">
             <button type="button" class="deleteAnswerButton btn btn-danger" @click="deleteOption(question, question_option)">x</button>
           </div>
         </transition-group>
       </div>
     </transition-group>
+    <button type="button" class="btnAddQuestion btn btn-outline-primary" @click="addQuestion">Добавить вопрос</button>
   </div>
 </template>
 
@@ -98,30 +98,38 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 35px;
   display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.questionDescription{
-  font-size: 1.5rem;
+.questionDescription {
+  width: 450px;
 }
 
-.btnAddQuestion{
-  margin-bottom: 20px;
-  padding: 10px;
+.answerDescription {
+  width: 350px;
 }
 
-.questionCard{
+.btnAddQuestion {
+  margin: 20px;
+}
+
+.btn-primary {
+  margin-left: 15px;
+  margin-right: 15px;
+} 
+
+.questionCard {
     padding: 20px;
-    margin: 20px 0;
-    background: #efefef;
+    margin: 35px 0;
+    background: #f8f9fa;
     border: 1px solid #bfbebe;
     position: relative;
 }
 
-.deleteButton{
+.deleteButton {
   cursor: pointer;
   position: absolute;
   right: -20;
@@ -130,12 +138,16 @@ export default {
   height: 40px;
 }
 
-.deleteAnswerButton{
-  cursor: pointer;
+.deleteAnswerButton {
+  height: 30px;
+  padding: 0px;
+  width: 30px;
+  margin-bottom: 1px;
 }
 
-.questionManage{
+.questionManage {
   display: flex;
+  margin-bottom: 25px;
 }
 
 .list-enter-active, .list-leave-active {

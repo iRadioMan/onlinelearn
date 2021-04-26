@@ -6466,7 +6466,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n#app {\n  font-family: Avenir, Helvetica, Arial, sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  text-align: center;\n  color: #2c3e50;\n  margin-top: 60px;\n  display: flex;\n    flex-direction: column;\n    align-items: center;\n}\n.questionDescription{\n  font-size: 1.5rem;\n}\n.btnAddQuestion{\n  margin-bottom: 20px;\n  padding: 10px;\n}\n.questionCard{\n    padding: 20px;\n    margin: 20px 0;\n    background: #efefef;\n    border: 1px solid #bfbebe;\n    position: relative;\n}\n.deleteButton{\n  cursor: pointer;\n  position: absolute;\n  right: -20;\n  top: -20px;\n  width: 40px;\n  height: 40px;\n}\n.deleteAnswerButton{\n  cursor: pointer;\n}\n.questionManage{\n  display: flex;\n}\n.list-enter-active, .list-leave-active {\n  transition: all .25s;\n}\n.list-enter, .list-leave-to /* .list-leave-active до версии 2.1.8 */ {\n  opacity: 0;\n  transform: scale(0);\n}\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n#app {\n  font-family: Avenir, Helvetica, Arial, sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  text-align: center;\n  color: #2c3e50;\n  margin-top: 35px;\n  display: flex;\n    flex-direction: column;\n    align-items: center;\n}\n.questionDescription {\n  width: 450px;\n}\n.answerDescription {\n  width: 350px;\n}\n.btnAddQuestion {\n  margin: 20px;\n}\n.btn-primary {\n  margin-left: 15px;\n  margin-right: 15px;\n}\n.questionCard {\n    padding: 20px;\n    margin: 35px 0;\n    background: #f8f9fa;\n    border: 1px solid #bfbebe;\n    position: relative;\n}\n.deleteButton {\n  cursor: pointer;\n  position: absolute;\n  right: -20;\n  top: -20px;\n  width: 40px;\n  height: 40px;\n}\n.deleteAnswerButton {\n  height: 30px;\n  padding: 0px;\n  width: 30px;\n  margin-bottom: 1px;\n}\n.questionManage {\n  display: flex;\n  margin-bottom: 25px;\n}\n.list-enter-active, .list-leave-active {\n  transition: all .25s;\n}\n.list-enter, .list-leave-to /* .list-leave-active до версии 2.1.8 */ {\n  opacity: 0;\n  transform: scale(0);\n}\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -37602,16 +37602,6 @@ var render = function() {
     "div",
     [
       _c(
-        "button",
-        {
-          staticClass: "btnAddQuestion btn btn-outline-primary",
-          attrs: { type: "button" },
-          on: { click: _vm.addQuestion }
-        },
-        [_vm._v("Добавить вопрос")]
-      ),
-      _vm._v(" "),
-      _c(
         "transition-group",
         { attrs: { name: "list", tag: "div" } },
         _vm._l(_vm.questions, function(question, itemId) {
@@ -37770,6 +37760,7 @@ var render = function() {
                             expression: "question_option.description"
                           }
                         ],
+                        staticClass: "questionDescription",
                         attrs: {
                           name:
                             "questions[" +
@@ -37817,6 +37808,16 @@ var render = function() {
           )
         }),
         0
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "btnAddQuestion btn btn-outline-primary",
+          attrs: { type: "button" },
+          on: { click: _vm.addQuestion }
+        },
+        [_vm._v("Добавить вопрос")]
       )
     ],
     1
