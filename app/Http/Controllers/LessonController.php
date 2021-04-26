@@ -61,19 +61,16 @@ class LessonController extends Controller
     {
         $nextLesson = Lesson::where('id', '>', $lesson->id)->first();
         
-        if($nextLesson) {
+        if($nextLesson != null) {
             $nextLessonIsAccesible = Lesson::where('id', '>', $lesson->id)->first()->accessible;
-            $allLessonsCompleted = false;
         }
         else {
-            $nextLessonIsAccesible = true;
-            $allLessonsCompleted = true;
+            $nextLessonIsAccesible = $lesson->quiz_result->correct_percentage >= (int)AppSettings::where('name', 'acceptable_percentage')->first()->value;
         }
 
         return view('lessons.show', [
             'lesson' => $lesson,
-            'nextLessonIsAccessible' => $nextLessonIsAccesible,
-            'allLessonsCompleted' => $allLessonsCompleted
+            'nextLessonIsAccessible' => $nextLessonIsAccesible
         ]);
     }
 

@@ -16,7 +16,7 @@
             <p>{{$lesson->description}}</p>
         </div>
 
-        @if(!$nextLessonIsAccessible && !$allLessonsCompleted)
+        @if(!$nextLessonIsAccessible)
             <a target="_blank" href="{{route('quiz.show', $lesson->id)}}" 
                 class="btn btn-outline-primary managebtn mt-3 ms-3" style="flex-shrink: 0">Пройти тест</a>
         @endif

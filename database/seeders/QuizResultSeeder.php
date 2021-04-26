@@ -39,6 +39,11 @@ class QuizResultSeeder extends Seeder
                 'user_id' => 2,
                 'lesson_id' => 5,
                 'correct_percentage' => '100'
+            ],
+            [
+                'user_id' => 2,
+                'lesson_id' => 6,
+                'correct_percentage' => '100'
             ]
         ]);
     }
