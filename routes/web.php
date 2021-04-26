@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AppSettingsController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ExportResultsController;
 use App\Http\Controllers\LessonController;
@@ -54,6 +55,8 @@ Route::middleware('auth')->group(function(){
             });
 
             Route::resource('results/export', ViewResultsController::class);
+
+            Route::post('settings/save', [AppSettingsController::class, 'store'])->name('settings.save');
         });
     });
 });
