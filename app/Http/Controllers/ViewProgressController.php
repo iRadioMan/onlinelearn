@@ -22,7 +22,9 @@ class ViewProgressController extends Controller
             return $item->accessible;
         })->count();
 
-        if ($availableLessonsCount == $lessonsCount)
+        $lastLessonCompleted = Lesson::all()->last()->quizResult->correct_percentage >= (int)AppSettings::where('name', 'acceptable_percentage')->first()->value;
+
+        if (($availableLessonsCount == $lessonsCount) && $lastLessonCompleted)
         {
             $completedLessonsCount = $availableLessonsCount;
         }
