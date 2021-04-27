@@ -7,6 +7,7 @@ use App\Http\Controllers\LessonController;
 use App\Http\Controllers\ManageLessonController;
 use App\Http\Controllers\ManageQuizController;
 use App\Http\Controllers\ManageRequestController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QuizController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ViewProgressController;
@@ -36,10 +37,12 @@ Route::middleware('guest')->group(function(){
 Route::middleware('auth')->group(function(){
     Route::post('logout', [AuthController::class, 'logout'])->name('auth.logout');
     Route::post('regroup', [AuthController::class, 'regroup'])->name('auth.regroup');
+    Route::post('profile/updatepassword', [ProfileController::class, 'update'])->name('password.update');
 
     Route::resource('lessons', LessonController::class);
     Route::resource('quiz', QuizController::class);
     Route::resource('progress', ViewProgressController::class);
+    Route::resource('profile', ProfileController::class);
 
     Route::middleware('auth.admin')->group(function(){
         Route::prefix('admin')->group(function(){

@@ -42,11 +42,15 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function inGroup(){
+    public function inGroup() {
         return $this->group_id !== null;
     }
+    
+    public function group() {
+        return $this->belongsTo(UserGroup::class, 'group_id');
+    }
 
-    public function groupRequests(){
+    public function groupRequests() {
         return $this->hasMany(UserGroupRequest::class, "user_id");
     }
 
@@ -54,7 +58,7 @@ class User extends Authenticatable
         return UserGroupRequest::where('user_id', $this->id)->orderBy('created_at', 'desc')->first();
     }
 
-    public function quizResults(){
+    public function quizResults() {
         return $this->hasMany(QuizResult::class, "user_id");
     }
 

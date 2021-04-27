@@ -17,13 +17,16 @@
                     @component('layouts.nav-user-admin')
                     @endcomponent
                 @endif
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('profile.index')}}">Профиль</a>
+                </li>
                 @endauth
             </ul>
 
 
             @auth
             <button class="btn btn-outline-danger" type="submit" data-bs-toggle="modal" data-bs-target="#logoutModal">Выйти</button>
-
+            
             <div class="modal fade" id="quizSettingsModal" tabindex="-1">
                 <div class="modal-dialog modal-dialog-scrollable" style="max-width: 500px">
                     <div class="modal-content">
