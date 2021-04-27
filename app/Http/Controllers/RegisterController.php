@@ -40,9 +40,9 @@ class RegisterController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'fullname' => 'required|string',
-            'login' => 'required|string|unique:users',
-            'password' => ['required', 'string', 'confirmed', 'min:6', 'regex:/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/u'],
+            'fullname' => 'required|string|max:50',
+            'login' => 'required|string|unique:users|max:50',
+            'password' => ['required', 'string', 'confirmed', 'min:6', 'max:50', 'regex:/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/u'],
             'group_id' => 'required|integer|exists:user_groups,id'
         ]);
 
