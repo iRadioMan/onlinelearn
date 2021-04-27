@@ -22,8 +22,10 @@
                 <tr>
                     <td class="fs-5">{{$user->fullname}}</td>
                     <td>
-                        @foreach($user->quizResults as $result)
-                            <p class="mt-2"><strong>Тема #{{$result->lesson->id}}</strong> - {{$result->correct_percentage}}%</p>
+                        @foreach($lessons as $lesson)
+                            @if($user->lastQuizResult($lesson->id))
+                                <p class="mt-2"><strong>Тема #{{$lesson->id}}</strong> - {{$user->lastQuizResult($lesson->id)->correct_percentage}}%</p>
+                            @endif
                         @endforeach
                     </td>
                 </tr>

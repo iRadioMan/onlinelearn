@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Exports\ResultsExport;
 use App\Models\User;
+use App\Models\Lesson;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -16,7 +17,10 @@ class ViewResultsController extends Controller
      */
     public function index()
     {
-        return view("view/results/index", ['users' => User::all()->sortBy('fullname')]);
+        return view("view/results/index", [
+            'users' => User::all()->sortBy('fullname'),
+            'lessons' => Lesson::all()
+        ]);
     }
 
     /**

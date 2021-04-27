@@ -54,8 +54,12 @@ class User extends Authenticatable
         return $this->hasMany(UserGroupRequest::class, "user_id");
     }
 
-    public function getLastGroupRequestAttribute(){
+    public function getLastGroupRequestAttribute() {
         return UserGroupRequest::where('user_id', $this->id)->orderBy('created_at', 'desc')->first();
+    }
+
+    public function lastQuizResult($lesson_id) {
+        return QuizResult::where(['user_id' => $this->id, 'lesson_id' => $lesson_id])->orderBy('created_at', 'desc')->first();
     }
 
     public function quizResults() {
