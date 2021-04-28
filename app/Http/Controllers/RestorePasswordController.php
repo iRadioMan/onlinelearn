@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use App\Models\UserGroup;
-use App\Models\UserGroupRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
-class RegisterController extends Controller
+class RestorePasswordController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +16,7 @@ class RegisterController extends Controller
      */
     public function index()
     {
-        $userGroups = UserGroup::all();
-        return view('register', ['groups' => $userGroups]);
+        return view('restore');
     }
 
     /**
@@ -40,24 +38,27 @@ class RegisterController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'fullname' => 'required|string|max:50',
-            'login' => 'required|string|unique:users|max:50',
-            'password' => ['required', 'string', 'confirmed', 'min:6', 'max:50', 'regex:/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/u'],
-            'group_id' => 'required|integer|exists:user_groups,id'
+            'login' => 'required|string',
+            'password' => ['required', 'string', 'confirmed', 'min:6', 'regex:/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/u'],
+            'code' => 'required|string|min:6|max:6'
         ]);
 
-        $groupId = $validated['group_id']; //Передаём id группы во временную переменную, чтобы затем создалась заявка
-        unset($validated['group_id']); //Теперь пользователь создастся без выбранной группы, нужно ожидать принятия заявки
+        $user = User::where('login', '=', $validated['login'])->first();
+
+        if (!$user) {
+            return redirect()->back()->withErrors(['login' => 'Пользователь с таким логином не найден!']);
+        }
+
+        if ($user->code != $validated['code']) {
+            return redirect()->back()->withErrors(['code' => 'Неверный код восстановления!']);
+        }
+
         $validated['password'] = Hash::make($validated['password']);
+        $validated['code'] = substr(md5(time()), 0, 6); //генерируем новый код восстановления
 
-        $validated['code'] = substr(md5(time()), 0, 6); //генерируем код восстановления
-        
-        $user = User::create($validated);
-        UserGroupRequest::create([
-            'user_id' => $user->id,
-            'group_id' => $groupId
-        ]);
-        return redirect(route('auth.index'))->with('success', 'Вы успешно зарегистрировались! Пожалуйста, запишите ваш код восстановления: ' . $validated['code']);
+        User::where('login', '=', $validated['login'])->update($validated);
+
+        return redirect('/')->with('success', 'Вы успешно изменили пароль! Ваш новый код восстановления: ' . $validated['code']);
     }
 
     /**
@@ -89,7 +90,7 @@ class RegisterController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         //
     }

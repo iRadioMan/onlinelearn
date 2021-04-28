@@ -6,7 +6,7 @@
     <form class="form-300px form-fullheight mb-1" method="POST" action="{{route('auth.store')}}">
         <h1 class="text-center mb-4">Авторизация</h1>
         @if(session('success'))
-        <div class="alert alert-success" role="alert">
+        <div class="alert alert-success fs-5" role="alert">
             {{session('success')}}
         </div>
         @endif
@@ -28,6 +28,9 @@
                 {{ $message }}
             </div>
             @enderror
+        </div>
+        <div class="mb-4">
+            <a href="{{route('restore.index')}}" class="fs-6">Забыли пароль?</a>
         </div>
         <button type="submit" class="btn btn-primary">Войти</button>
     </form>

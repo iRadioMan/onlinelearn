@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->boolean('is_admin')->default(false);
             $table->foreignId('group_id')->nullable();
             $table->foreign('group_id')->references('id')->on('user_groups')->nullOnDelete();
+            $table->string('code');
             $table->rememberToken();
             $table->timestamps();
         });

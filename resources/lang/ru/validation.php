@@ -47,7 +47,7 @@ return [
     'gt' => [
         'numeric' => 'The :attribute must be greater than :value.',
         'file' => 'The :attribute must be greater than :value kilobytes.',
-        'string' => 'The :attribute must be greater than :value characters.',
+        'string' => 'Поле :attribute не должно быть длиннее :value символов.',
         'array' => 'The :attribute must have more than :value items.',
     ],
     'gte' => [
@@ -79,7 +79,7 @@ return [
     'max' => [
         'numeric' => 'The :attribute must not be greater than :max.',
         'file' => 'The :attribute must not be greater than :max kilobytes.',
-        'string' => 'The :attribute must not be greater than :max characters.',
+        'string' => 'Поле :attribute не должно содержать более :max символов.',
         'array' => 'The :attribute must not have more than :max items.',
     ],
     'mimes' => 'The :attribute must be a file of type: :values.',

@@ -4,6 +4,12 @@
 
 @section('content')
     @guest
+    @if(session('success'))
+    <div class="alert alert-success fs-5" role="alert">
+        {{session('success')}}
+    </div>
+    @endif
+
     <p>Добро пожаловать на главную страницу электронного пособия по подготовке к демоэкзамену для направления ИСиП.</p>
     <p>Пожалуйста, авторизуйтесь или зарегистрируйтесь.</p>
 

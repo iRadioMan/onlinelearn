@@ -10,6 +10,7 @@ use App\Http\Controllers\ManageRequestController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QuizController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\RestorePasswordController;
 use App\Http\Controllers\ViewProgressController;
 use App\Http\Controllers\ViewResultsController;
 use Illuminate\Support\Facades\Route;
@@ -32,6 +33,7 @@ Route::get('/', function () {
 Route::middleware('guest')->group(function(){
     Route::resource('register', RegisterController::class);
     Route::resource('auth', AuthController::class);
+    Route::resource('restore', RestorePasswordController::class);
 });
 
 Route::middleware('auth')->group(function(){
