@@ -34,22 +34,7 @@ export default {
     return {
       lesson: {},
       questions: [
-        {
-          id: 1,
-          description: "Текст вопроса",
-          question_options: [
-            {
-                id: 1,
-                correct: true,
-                description: "Вариант ответа 1"
-            },
-            {
-                id: 2,
-                correct: false,
-                description: "Вариант ответа 2"
-            }
-          ]
-        }
+        
       ]
     }
   },
@@ -63,7 +48,7 @@ export default {
   methods: {
     addQuestion(){
       this.questions.push({
-        id: Math.floor(Math.random() * 10000) * -1,
+        id: Math.floor(Math.random() * 100000) * -1,
         description: "Новый вопрос",
       })
     },
@@ -73,9 +58,9 @@ export default {
       }
       this.questions[id].question_options.push(
         {
-          id: Math.floor(Math.random() * 10000) * -1,
+          id: Math.floor(Math.random() * 100000) * -1,
           description: "Новый ответ",
-          correct: false
+          correct: false,
         }
       );
       this.$forceUpdate();

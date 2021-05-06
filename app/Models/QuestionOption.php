@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class QuestionOption extends Model
 {
     use HasFactory;
+    protected $fillable = ['description', 'correct', 'question_id'];
 
     public function toArray()
     {

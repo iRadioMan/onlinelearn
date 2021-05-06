@@ -1876,19 +1876,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       lesson: {},
-      questions: [{
-        id: 1,
-        description: "Текст вопроса",
-        question_options: [{
-          id: 1,
-          correct: true,
-          description: "Вариант ответа 1"
-        }, {
-          id: 2,
-          correct: false,
-          description: "Вариант ответа 2"
-        }]
-      }]
+      questions: []
     };
   },
   mounted: function mounted() {
@@ -1899,7 +1887,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     addQuestion: function addQuestion() {
       this.questions.push({
-        id: Math.floor(Math.random() * 10000) * -1,
+        id: Math.floor(Math.random() * 100000) * -1,
         description: "Новый вопрос"
       });
     },
@@ -1909,7 +1897,7 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       this.questions[id].question_options.push({
-        id: Math.floor(Math.random() * 10000) * -1,
+        id: Math.floor(Math.random() * 100000) * -1,
         description: "Новый ответ",
         correct: false
       });
