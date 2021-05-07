@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AppSettingsController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HelpController;
 use App\Http\Controllers\ExportResultsController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\ManageLessonController;
@@ -45,6 +46,7 @@ Route::middleware('auth')->group(function(){
     Route::resource('quiz', QuizController::class);
     Route::resource('progress', ViewProgressController::class);
     Route::resource('profile', ProfileController::class);
+    Route::resource('help', HelpController::class, ['parameters' => ['help' => 'helpPage']]);
 
     Route::middleware('auth.admin')->group(function(){
         Route::prefix('admin')->group(function(){

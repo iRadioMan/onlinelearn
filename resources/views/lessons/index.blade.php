@@ -31,7 +31,7 @@
             <td style="max-width: 330px">{{$lesson->description}}</td>
             <td>{{$lesson->quiz_result ? $lesson->quizResult->correct_percentage . "% правильно" : "Не пройден"}}</td>
             <td>
-                <a href="{{route('lessons.show', $lesson->id)}}" class="btn btn-outline-primary openbtn">Открыть</a>
+                <a href="{{route('lessons.show', $lesson->id)}}" class="btn btn-outline-primary openbtn">Изучить</a>
             </td>
         </tr>
         @endforeach
