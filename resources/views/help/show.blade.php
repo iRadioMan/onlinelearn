@@ -18,7 +18,7 @@
 </div>
 
 <div class="card p-2">
-    <iframe style="height: 65vh;" src="/storage/help/{{$helpPage->main_file}}" frameborder="0"></iframe>
+    <iframe style="height: 70vh;" src="/storage/help/{{$helpPage->main_file}}" frameborder="0"></iframe>
 </div>
 
 @endsection

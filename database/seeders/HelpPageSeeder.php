@@ -18,6 +18,22 @@ class HelpPageSeeder extends Seeder
             [
                 'name' => 'Обучение',
                 'main_file' => 'lessons.html'
+            ],
+            [
+                'name' => 'Прохождение тестов',
+                'main_file' => 'quizzes.html'
+            ],
+            [
+                'name' => 'Использование глоссария',
+                'main_file' => 'glossary.html'
+            ],
+            [
+                'name' => 'Просмотр прогресса',
+                'main_file' => 'progress.html'
+            ],
+            [
+                'name' => 'Просмотр и настройка профиля',
+                'main_file' => 'profile.html'
             ]
         ]);
     }
