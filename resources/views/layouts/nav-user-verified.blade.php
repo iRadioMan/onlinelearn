@@ -7,3 +7,9 @@
 <li>
     <a class="nav-link" href="{{route('progress.index')}}">Прогресс обучения</a>
 </li>
+<li class="nav-item">
+    <a class="nav-link" href="{{route('profile.index')}}">Профиль</a>
+</li>
+<li>
+    <a class="nav-link" href="{{route('help.index')}}">Справка</a>
+</li>

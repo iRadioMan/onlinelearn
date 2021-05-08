@@ -17,12 +17,6 @@
                     @component('layouts.nav-user-admin')
                     @endcomponent
                 @endif
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('profile.index')}}">Профиль</a>
-                </li>
-                <li>
-                    <a class="nav-link" href="{{route('help.index')}}">Справка</a>
-                </li>
                 @endauth
             </ul>
 

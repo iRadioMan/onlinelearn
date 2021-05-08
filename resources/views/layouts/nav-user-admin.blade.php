@@ -10,3 +10,6 @@
 <li class="nav-item">
     <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#quizSettingsModal">Настройки тестов</a>
 </li>
+<li class="nav-item">
+    <a class="nav-link" href="{{route('profile.index')}}">Профиль</a>
+</li>
