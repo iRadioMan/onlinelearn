@@ -1,0 +1,15 @@
+h1{
+    font-family: Arial, Helvetica, sans-serif;
+    color: #0000a0;
+}
+
+.text {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.05rem;
+    /* border-bottom: 2px solid blue; */
+}
+
+img {
+	zoom: 80%;
+	border: 1px solid #000000;
+}
