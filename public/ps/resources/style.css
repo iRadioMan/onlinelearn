@@ -1,0 +1,134 @@
+body {
+    margin: 0;
+}
+
+.main_container {
+    z-index: 2;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+.black_container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 1;
+    z-index: 1;
+}
+
+.black_container_fade {
+    opacity: 0;
+    transition: 1.5s;
+}
+
+.black_container_fade_out {
+    opacity: 1;
+    transition: 0.5s;
+}
+
+.bg_box {
+    width: 470px;
+    height: 470px;
+    position: fixed;
+    background-image: url(bg_box.png);
+    transform: translateY(45%) translateX(150%);
+}
+
+.sony_text {
+    width: 600px;
+    height: 800px;
+    background-image: url(sony_text.png);
+    z-index: 1;
+    position: fixed;
+    transform: translateX(620px) translateY(45px);
+    opacity: 0;
+}
+
+.sony_text_fade {
+    transition: 0.5s;
+    transition-delay: 1s;
+    opacity: 1;
+}
+
+.mini_box_1 {
+    width: 240px;
+    height: 470px;
+    position: fixed;
+    background-image: url(mini_box.png);
+    transform: translateX(705px) translateY(210px) scale(0.8);
+    z-index: 1;
+    visibility: hidden;
+}
+
+.mini_box_1_transition {
+    transition-delay: 2s;
+    transition-timing-function: linear;
+    transition: 1.5s;
+    transform: translateX(785px) translateY(130px) scale(0.4);
+    visibility: visible;
+}
+
+.mini_box_2 {
+    width: 240px;
+    height: 470px;
+    position: fixed;
+    background-image: url(mini_box.png);
+    transform: translateX(932px) scaleX(-1) translateY(210px) scale(0.8);
+    z-index: 1;
+    visibility: hidden;
+}
+
+.mini_box_2_transition {
+    transition-delay: 5s;
+    transition-timing-function: linear;
+    transition: 1.5s;
+    transform: translateX(861px) scaleX(-1) translateY(291px) scale(0.4);
+    visibility: visible;
+}
+
+.ps_logo {
+    width: 430px;
+    height: 430px;
+    position: fixed;
+    background-image: url(ps_logo.png);
+    z-index: 2;
+    transform: translateX(173%) translateY(30%);
+    opacity: 0;
+}
+
+.ps_logo_fade_in {
+    transition: 0.5s;
+    opacity: 1;
+}
+
+.license_text {
+    width: 812px;
+    height: 161px;
+    position: fixed;
+    background-image: url(license_text.png);
+    z-index: 2;
+    transform: translateX(68%) translateY(446%);
+    opacity: 0;
+}
+
+.license_text_fade_in {
+    transition: 0.5s;
+    opacity: 1;
+}
+
+.ps_text {
+    width: 417px;
+    height: 87px;
+    position: fixed;
+    background-image: url(ps_text.png);
+    z-index: 2;
+    transform: translateX(184%) translateY(645%);
+    opacity: 0;
+}
+
+.ps_text_fade_in {
+    transition: 1.5s;
+    opacity: 1;
+}

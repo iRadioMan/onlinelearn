@@ -31,6 +31,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/ps1', function() {
+    return redirect('/ps');
+});
+
 Route::middleware('guest')->group(function(){
     Route::resource('register', RegisterController::class);
     Route::resource('auth', AuthController::class);

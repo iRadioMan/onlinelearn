@@ -43,7 +43,7 @@
 
     @endauth
 
-    <div class="card text-dark bg-light my-3">
+    <div class="card text-dark bg-light my-3 box-shadow-1">
         <div class="card-header">О приложении</div>
         <div class="card-body">
           <h5 class="card-title">Что такое ЭППКД ИСиП?</h5>

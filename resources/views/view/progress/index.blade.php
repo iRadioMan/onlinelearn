@@ -20,10 +20,12 @@
 </div>
 
 @if($completedLessonsCount == $lessonsCount)
-    <div class="card text-white bg-success mt-4">
+    <div class="card text-white bg-success mt-4 box-shadow-1">
         <div class="card-header">Обучение завершено</div>
         <div class="card-body">
-            <h5 class="card-text">Поздравляем с успешным завершением обучения! Сообщите об этом своему преподавателю</h5>
+            <h5 class="card-text">Поздравляем с успешным завершением обучения! Сообщите об этом своему преподавателю
+                <a href="/ps1"><img src="/assets/img/check2-square.svg"></a>
+            </h5>
         </div>
     </div>
 @endif
