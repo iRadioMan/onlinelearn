@@ -21,10 +21,11 @@
             <div class="ps-4 pt-4">
                 @foreach ($question->question_options as $question_option)
                 <div class="mb-2">
-                    <input class="form-check-input me-2" type="checkbox" 
+                    <label for="question-{{$question_option->id}}">
+                        <input class="form-check-input me-2" type="checkbox" 
                         name="question_option[]"
                         value="{{$question_option->id}}" id="question-{{$question_option->id}}">
-                    <label for="question-{{$question_option->id}}">{{$question_option->description}}</label> 
+                        {{$question_option->description}}</label> 
                 </div>
                 @endforeach
             </div>
