@@ -12,8 +12,7 @@
 <table class="table align-middle">
     <thead>
       <tr>
-        <th scope="col">Студент</th>
-        <th scope="col">Результаты</th>
+        <hr>
       </tr>
     </thead>
     <tbody>
@@ -24,7 +23,10 @@
                     <td>
                         @foreach($lessons as $lesson)
                             @if($user->lastQuizResult($lesson->id))
-                                <p class="mt-2"><strong>Тема #{{$lesson->id}}</strong> - {{$user->lastQuizResult($lesson->id)->correct_percentage}}%</p>
+                                <p><strong>#{{$lesson->id}}</strong> - {{$user->lastQuizResult($lesson->id)->correct_percentage}}%</p>
+                                @if(($lesson->id % 4) == 0)
+                                    </td><td>
+                                @endif
                             @endif
                         @endforeach
                     </td>
