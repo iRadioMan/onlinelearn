@@ -16,7 +16,7 @@ use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 class ResultsExport implements FromCollection, WithHeadings, WithColumnWidths, WithMapping, WithStyles
 {
     /**
-    * @return \Illuminate\Support\Collection
+    * Экспорт в Excel.
     */
     public function collection()
     {

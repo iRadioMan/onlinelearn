@@ -11,9 +11,7 @@ use ZipArchive;
 class ManageLessonController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Отображает список уроков.
      */
     public function index()
     {
@@ -21,9 +19,7 @@ class ManageLessonController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Отображает форму создания нового урока.
      */
     public function create()
     {
@@ -31,10 +27,7 @@ class ManageLessonController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * Сохраняет урок в БД.
      */
     public function store(Request $request)
     {
@@ -57,21 +50,7 @@ class ManageLessonController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Отображает форму редактирования урока.
      */
     public function edit(Lesson $lesson)
     {
@@ -79,11 +58,7 @@ class ManageLessonController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Обновляет данные урока.
      */
     public function update(Request $request, Lesson $lesson)
     {
@@ -105,10 +80,7 @@ class ManageLessonController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Удаляет урок из БД и файловой системы.
      */
     public function destroy(Lesson $lesson)
     {
