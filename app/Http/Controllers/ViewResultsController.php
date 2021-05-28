@@ -16,7 +16,7 @@ class ViewResultsController extends Controller
     public function index()
     {
         return view("view/results/index", [
-            'users' => User::all()->sortBy('fullname'),
+            'users' => User::whereNotNull('group_id')->get()->sortBy('fullname'),
             'lessons' => Lesson::all()
         ]);
     }

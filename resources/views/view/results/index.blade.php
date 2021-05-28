@@ -21,14 +21,20 @@
                 <tr class="results-table">
                     <td class="fs-5">{{$user->fullname}}</td>
                     <td>
-                        @foreach($lessons as $lesson)
-                            @if($user->lastQuizResult($lesson->id))
-                                <p><strong>#{{$lesson->id}}</strong> - {{$user->lastQuizResult($lesson->id)->correct_percentage}}%</p>
-                                @if(($lesson->id % 4) == 0)
-                                    </td><td>
+                        @if($user->quizResults->count() != 0)
+                            @foreach($lessons as $lesson)
+                                @if($user->lastQuizResult($lesson->id))
+                                    <p class="mb-0"><strong>#{{$lesson->id}}</strong> - {{$user->lastQuizResult($lesson->id)->correct_percentage}}%</p>
+                                    
+                                    <!-- разбиение результатов по 4 строки -->
+                                    @if(($lesson->id % 4) == 0)
+                                        </td><td>
+                                    @endif
                                 @endif
-                            @endif
-                        @endforeach
+                            @endforeach
+                        @else
+                            <p class="mb-0"><strong>Нет результатов</strong></p>                
+                        @endif
                     </td>
                 </tr>
             @endif
