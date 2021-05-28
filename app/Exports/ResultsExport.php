@@ -46,7 +46,6 @@ class ResultsExport implements FromCollection, WithHeadings, WithColumnWidths, W
     public function map($result): array
     {
         return [
-            $result->id,
             $result->user->fullname,
             $result->lesson->name,
             $result->correct_percentage,
@@ -57,7 +56,6 @@ class ResultsExport implements FromCollection, WithHeadings, WithColumnWidths, W
     public function headings(): array
     {
         return [
-            '#',
             'Студент',
             'Тема',
             'Результат, %',
@@ -68,11 +66,10 @@ class ResultsExport implements FromCollection, WithHeadings, WithColumnWidths, W
     public function columnWidths(): array
     {
         return [
-            'A' => 6,
-            'B' => 45,  
-            'C' => 100,
-            'D' => 13,
-            'E' => 26         
+            'A' => 45,  
+            'B' => 100,
+            'C' => 13,
+            'D' => 26         
         ];
     }
 
@@ -82,6 +79,5 @@ class ResultsExport implements FromCollection, WithHeadings, WithColumnWidths, W
         $sheet->getStyle('B1')->getFont()->setBold(true);
         $sheet->getStyle('C1')->getFont()->setBold(true);
         $sheet->getStyle('D1')->getFont()->setBold(true);
-        $sheet->getStyle('E1')->getFont()->setBold(true);
     }
 }

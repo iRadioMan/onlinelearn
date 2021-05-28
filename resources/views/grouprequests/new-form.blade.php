@@ -12,4 +12,4 @@
     </div>
     @enderror
     <input type="submit" value="Отправить" class="btn btn-primary mt-3">
-</div>
+</form>

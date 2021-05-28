@@ -24,7 +24,7 @@
         <div class="card-header">Обучение завершено</div>
         <div class="card-body">
             <h5 class="card-text">Поздравляем с успешным завершением обучения! Сообщите об этом своему преподавателю
-                <a href="/ps1"><img src="/assets/img/check2-square.svg"></a>
+                <a href="public/ps/index.htm"><img src="/assets/img/check2-square.svg"></a>
             </h5>
         </div>
     </div>
