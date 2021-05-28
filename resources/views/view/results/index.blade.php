@@ -12,13 +12,13 @@
 <table class="table align-middle">
     <thead>
       <tr>
-        <hr>
+        <hr class="mb-0">
       </tr>
     </thead>
     <tbody>
         @foreach($users as $user)
             @if(!$user->isAdmin())
-                <tr>
+                <tr class="results-table">
                     <td class="fs-5">{{$user->fullname}}</td>
                     <td>
                         @foreach($lessons as $lesson)
