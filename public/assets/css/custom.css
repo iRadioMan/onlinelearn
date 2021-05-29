@@ -1,7 +1,71 @@
+@keyframes logo-anim {
+    0% {
+        transform: rotateY(0deg);
+    }
+    25%{
+        transform: rotateY(90deg);
+    }
+    50% {
+        transform: rotateY(180deg);
+    }
+    75% {
+        transform: rotateY(90deg);
+    }
+    100% {
+        transform: rotateY(0deg);
+    }
+}
+
+@keyframes progressbar-anim {
+    from {
+        width: 0%;
+    }
+}
+
+@keyframes progresstext-anim {
+    from {
+        opacity: 0%;
+    }
+    to {
+        opacity: 100%
+    }
+}
+
+@keyframes infoblock-anim {
+    from {
+        transform: rotateY(70deg) rotateX(45deg);
+    }
+}
+
+@keyframes lesson-frame-anim {
+    from {
+        opacity: 0%;
+    }
+}
+
+@keyframes alertblock-anim {
+    0% {
+        transform: translateX(-20px);
+    }
+    25% {
+        transform: translateX(20px);
+    }
+    50% {
+        transform: translateX(-20px);
+    }
+    75% {
+        transform: translateX(20px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}
+
 body {
     min-height: 100%;
     display: grid;
     grid-template-rows: auto 1fr auto;
+    background: mintcream;
 }
 
 .form-300px {
@@ -19,24 +83,6 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
-
-@keyframes logo-anim {
-    0% {
-        transform: rotateY(0deg);
-    }
-    25%{
-        transform: rotateY(90deg);
-    }
-    50% {
-        transform: rotateY(180deg);
-    }
-    75% {
-        transform: rotateY(90deg);
-    }
-    100% {
-        transform: rotateY(0deg);
-    }
 }
 
 .mainlogo {
@@ -57,21 +103,6 @@ body {
 
 .openbtn {
     width: 8rem;
-}
-
-@keyframes progressbar-anim {
-    from {
-        width: 0%;
-    }
-}
-
-@keyframes progresstext-anim {
-    from {
-        opacity: 0%;
-    }
-    to {
-        opacity: 100%
-    }
 }
 
 .student-progress-bar {
@@ -111,4 +142,17 @@ body {
     border-bottom: solid;
     border-bottom-width: 1px;
     border-bottom-color: inherit;
+}
+
+.app-info-block {
+    animation: infoblock-anim 1s ease;
+}
+
+.lesson-frame {
+    animation: lesson-frame-anim 0.5s linear;
+}
+
+.end-learn-block, .alert {
+    margin-top: 5px;
+    animation: alertblock-anim 0.5s linear;
 }

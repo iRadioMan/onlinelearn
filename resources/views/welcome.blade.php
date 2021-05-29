@@ -10,8 +10,8 @@
     </div>
     @endif
 
-    <p>Добро пожаловать!</p>
-    <p>Пожалуйста, авторизуйтесь или зарегистрируйтесь.</p>
+    <p class="fs-5">Добро пожаловать!</p>
+    <p class="fs-5">Пожалуйста, авторизуйтесь или зарегистрируйтесь.</p>
 
     @endguest
 
@@ -43,7 +43,7 @@
 
     @endauth
 
-    <div class="card text-dark bg-light my-3 box-shadow-1">
+    <div class="card app-info-block text-dark bg-light my-5 box-shadow-1">
         <div class="card-header">О приложении</div>
         <div class="card-body">
           <h5 class="card-title">Что такое ЭППКД ИСиП?</h5>

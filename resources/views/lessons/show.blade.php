@@ -30,7 +30,7 @@
 </div>
 @endif
 
-<div class="card p-2 box-shadow-1">
+<div class="card p-2 lesson-frame box-shadow-1">
     <iframe style="height: 65vh;" src="/storage/lessons/{{$lesson->id}}/{{$lesson->main_file}}" frameborder="0"></iframe>
 </div>
 
