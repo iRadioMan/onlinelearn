@@ -38,12 +38,14 @@
     </thead>
     <tbody>
         @foreach($lessons as $lesson)
-        <tr><td>
-            <div class="card p-2 my-2">                    
-                <p><strong>Тема #{{$lesson->id}}: </strong>{{$lesson->name}}</p>
-                <p class="mb-1"><strong>Результат теста: </strong>{{$user->lastQuizResult($lesson->id)->correct_percentage}}% правильно</p>
-            </div>
-        </td></tr>
+        @if($user->lastQuizResult($lesson->id))
+            <tr><td>
+                <div class="card p-2 my-2">                    
+                    <p><strong>Тема #{{$lesson->id}}: </strong>{{$lesson->name}}</p>
+                    <p class="mb-1"><strong>Результат теста: </strong>{{$user->lastQuizResult($lesson->id)->correct_percentage}}% правильно</p>
+                </div>
+            </td></tr>
+        @endif
         @endforeach
     </tbody>
 </table>
