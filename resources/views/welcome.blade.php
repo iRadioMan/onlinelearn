@@ -17,7 +17,7 @@
 
     @auth
     
-    <p>Добро пожаловать, {{ Illuminate\Support\Facades\Auth::user()->fullname }}!</p>
+    <p class="fs-5">Добро пожаловать, {{ Illuminate\Support\Facades\Auth::user()->fullname }}!</p>
 
     @if(
         !Illuminate\Support\Facades\Auth::user()->inGroup() && 
@@ -61,9 +61,9 @@
               <br>
               
               <table><tr>
-              <td width="10%"><img src="/public/assets/img/asiec.png"></td>
+              <td width="10%"><img class="asiec-logo" src="/public/assets/img/asiec.png"></td>
               <td><strong>Данное веб-приложение является выпускной квалификационной работой студента Дудикова Ильи Витальевича</strong>
-                <br>Группа 11ПО181<br>КГБПОУ "Алтайский Промышленно-Экономический Колледж"</td>
+                <br>Группа 11ПО181<br>КГБПОУ "Алтайский промышленно-экономический колледж"</td>
               </tr></table>
             </p>
         </div>

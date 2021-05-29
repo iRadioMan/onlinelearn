@@ -65,7 +65,7 @@ body {
     min-height: 100%;
     display: grid;
     grid-template-rows: auto 1fr auto;
-    background: mintcream;
+    /* background: linear-gradient(325deg, #4c72ff26, #ffffffbd); */
 }
 
 .form-300px {
@@ -89,12 +89,17 @@ body {
     height: 40px;
 }
 
+.asiec-logo {
+    filter: drop-shadow(0px 0px 1px black);
+}
+
 .mainlogo:target {
     animation: logo-anim 2s linear;
 }
 
 .welcome-pic {
     width: 12rem;
+    filter: drop-shadow( 0px 0px 4px black);
 }
 
 .managebtn {
@@ -144,11 +149,17 @@ body {
     border-bottom-color: inherit;
 }
 
+.modal-content {
+    border-radius: 10px;
+}
+
 .app-info-block {
+    border-radius: 10px;
     animation: infoblock-anim 1s ease;
 }
 
 .lesson-frame {
+    border-radius: 15px;
     animation: lesson-frame-anim 0.5s linear;
 }
 
