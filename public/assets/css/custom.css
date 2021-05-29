@@ -94,6 +94,18 @@ body {
     box-shadow:         4px 3px 13px 0px rgba(50, 50, 50, 0.5);
 }
 
+.header-box-shadow {
+    -webkit-box-shadow: 0px 0px 4px 0px rgba(50, 50, 50, 0.5);
+    -moz-box-shadow:    0px 0px 4px 0px rgba(50, 50, 50, 0.5);
+    box-shadow:         0px 0px 4px 0px rgba(50, 50, 50, 0.5);
+}
+
+.footer-box-shadow {
+    -webkit-box-shadow: 0px -1px 11px 1px rgba(50, 50, 50, 0.5);
+    -moz-box-shadow:    0px -1px 11px 1px rgba(50, 50, 50, 0.5);
+    box-shadow:         0px -1px 11px 1px rgba(50, 50, 50, 0.5);
+}
+
 .results-table {
     border-style: none;
     border-bottom: solid;

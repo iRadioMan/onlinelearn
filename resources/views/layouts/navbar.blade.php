@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light header-box-shadow">
     <div class="container">
         <a href="#mainlogo"><img src="/public/assets/img/study.svg" class="me-2 mainlogo" id="mainlogo" href="/"></a>
         <a class="navbar-brand" href="/">{{ config('app.name') }}</a>

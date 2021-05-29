@@ -15,7 +15,7 @@
         <div class="container py-4">
             @yield('content')
         </div>
-        <footer class="navbar navbar-dark bg-dark text-white py-3">
+        <footer class="navbar navbar-dark bg-dark text-white py-3 footer-box-shadow">
             <div class="container d-flex justify-content-center">
                 <span>{{ config('app.name') }} © Илья Дудиков, 2021</span>
             </div>
