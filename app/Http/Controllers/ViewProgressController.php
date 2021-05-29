@@ -37,6 +37,7 @@ class ViewProgressController extends Controller
 
         return view("view/progress/index", [
             'user' => Auth::User(),
+            'lessons' => Lesson::all(),
             'lessonsCount' => $lessonsCount,
             'completedLessonsCount' => $completedLessonsCount
         ]);

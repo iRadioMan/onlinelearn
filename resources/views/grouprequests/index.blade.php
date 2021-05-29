@@ -8,7 +8,7 @@
 
 @section('content')
     <div class="d-flex justify-content-between flex-wrap align-items-center mb-4">
-        <h1>Управление заявками</h1>
+        <h1>Новые заявки</h1>
     </div>
 
     @if(session('success'))
