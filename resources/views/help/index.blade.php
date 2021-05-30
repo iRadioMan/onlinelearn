@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="d-flex justify-content-between flex-wrap align-items-center mb-4">
-    <h1>Разделы справочной системы</h1>
+    <h1>Справочная система</h1>
 </div>
 
 <table class="table align-middle">

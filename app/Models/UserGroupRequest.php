@@ -15,15 +15,15 @@ class UserGroupRequest extends Model
         'status_id'
     ];
 
-    public function group(){
+    public function group() { // получение группы, в которую подана данная заявка
         return $this->belongsTo(UserGroup::class, "group_id");
     }
 
-    public function user(){
+    public function user() { // получение пользователя, который подал данную заявку
         return $this->belongsTo(User::class, "user_id");
     }
 
-    public function toArray()
+    public function toArray() // преобразование в массив
     {
         $arr = parent::toArray();
         $arr['group'] = $this->group;

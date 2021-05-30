@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\HelpPage;
-use Illuminate\Http\Request;
 
 class HelpController extends Controller
 {

@@ -3,7 +3,6 @@
 use App\Http\Controllers\AppSettingsController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HelpController;
-use App\Http\Controllers\ExportResultsController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\ManageLessonController;
 use App\Http\Controllers\ManageQuizController;
@@ -18,13 +17,8 @@ use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| Web роуты
 |--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
 */
 
 Route::get('/', function () {

@@ -24,7 +24,6 @@
         </div>
         @endif
     
-
         @csrf
         @method('PATCH')
         <quiz-editor orig_lesson='{{json_encode($lesson->toArray())}}'></quiz-editor>

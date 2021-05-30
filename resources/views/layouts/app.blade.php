@@ -3,7 +3,7 @@
         <title>{{ config('app.name') }} - @yield('title')</title>
         <link rel="stylesheet" href="/public/assets/css/bootstrap.min.css">
         <link rel="stylesheet" href="/public/assets/css/custom.css">
-        <script src="/public/assets//js/bootstrap.min.js" defer></script>
+        <script src="/public/assets/js/bootstrap.min.js" defer></script>
         @yield('head')
     </head>
     <body>

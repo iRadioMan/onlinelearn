@@ -2,12 +2,11 @@ var deleteModal = document.getElementById('deleteModal');
 var formActionOriginal = document.getElementById('deleteModal').querySelector('form').action;
 
 deleteModal.addEventListener('show.bs.modal', function (event) {
-  // Button that triggered the modal
+  // кнопка, вызывающая модальную форму
   var button = event.relatedTarget
-  // Extract info from data-bs-* attributes
+  // извлечение атрибутов из data-bs-* 
   var deleteId = button.getAttribute('data-bs-delId');
   var lessonName = button.getAttribute('data-bs-lessonName');
-
 
   var lessonNameSpan = deleteModal.querySelector('.delete-fullname');
   var form = deleteModal.querySelector('form');
@@ -16,16 +15,15 @@ deleteModal.addEventListener('show.bs.modal', function (event) {
   form.action = formActionOriginal + "/" + deleteId;
 })
 
-
-
-
 var confirmDeleteInput = document.getElementById("modalDeleteWord");
 var confirmDeleteButton = document.getElementById("modalDeleteButton");
 var confirmWord = "удалить";
+
+// проверка на ввод слова "удалить" при удалении урока
 confirmDeleteInput.addEventListener('keyup', function(){
-    if(confirmDeleteInput.value === confirmWord){
+    if (confirmDeleteInput.value === confirmWord) {
         confirmDeleteButton.disabled = false;
-    }else{
+    } else {
         confirmDeleteButton.disabled = true;
     }
 });

@@ -6,7 +6,6 @@
         <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 @auth
                 @if(Illuminate\Support\Facades\Auth::user()->inGroup())
@@ -19,7 +18,6 @@
                 @endif
                 @endauth
             </ul>
-
 
             @auth
             <button class="btn btn-outline-danger" type="submit" data-bs-toggle="modal" data-bs-target="#logoutModal">Выйти</button>
@@ -78,7 +76,6 @@
                     </div>
                 </div>
             </div>
-
             @endauth
 
             @guest

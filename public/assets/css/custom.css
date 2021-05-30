@@ -66,6 +66,7 @@ body {
     display: grid;
     grid-template-rows: auto 1fr auto;
     /* background: linear-gradient(325deg, #4c72ff26, #ffffffbd); */
+    background-color: #fbfbfc;
 }
 
 .form-300px {
