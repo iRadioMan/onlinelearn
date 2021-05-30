@@ -44,8 +44,8 @@
     @endauth
 
     <div class="card app-info-block text-dark bg-light my-5 box-shadow-1">
-        <div class="card-header">О приложении</div>
-        <div class="card-body">
+        <div class="card-header py-3 px-4">О приложении</div>
+        <div class="card-body p-4">
           <h5 class="card-title">Что такое ЭППКД ИСиП?</h5>
           <p class="card-text">
               ЭППКД ИсИП - это электронное учебное пособие по подготовке студентов групп ИСиП к демоэкзамену по стандартам WorldSkills.<br>
@@ -63,7 +63,7 @@
               <table><tr>
               <td width="10%"><img class="asiec-logo" src="/public/assets/img/asiec.png"></td>
               <td><strong>Данное веб-приложение является выпускной квалификационной работой студента Дудикова Ильи Витальевича</strong>
-                <br>Группа 11ПО181<br>КГБПОУ "Алтайский промышленно-экономический колледж"</td>
+                <br>Группа 11ПО181<br>КГБПОУ "Алтайский промышленно-экономический колледж"<br>Руководитель: Смотрикин Василий Анатольевич</td>
               </tr></table>
             </p>
         </div>

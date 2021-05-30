@@ -40,7 +40,11 @@
         @foreach($lessons as $lesson)
         @if($user->lastQuizResult($lesson->id))
             <tr><td>
-                <div class="card p-2 my-2">                    
+                @if($user->lastQuizResult($lesson->id)->correct_percentage >= $acceptable_percentage)
+                    <div class="card p-2 my-2 result-success">
+                @else
+                    <div class="card p-2 my-2 result-fail"> 
+                @endif                  
                     <p><strong>Тема #{{$lesson->id}}: </strong>{{$lesson->name}}</p>
                     <p class="mb-1"><strong>Результат теста: </strong>{{$user->lastQuizResult($lesson->id)->correct_percentage}}% правильно</p>
                 </div>

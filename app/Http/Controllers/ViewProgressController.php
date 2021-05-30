@@ -15,13 +15,14 @@ class ViewProgressController extends Controller
     public function index()
     {
         $lessonsCount = Lesson::all()->count();
+        $acceptable_percentage = (int)AppSettings::where('name', 'acceptable_percentage')->first()->value;
 
         $availableLessonsCount = Lesson::all()->filter(function($item){
             return $item->accessible;
         })->count();
 
         if (Lesson::all()->last()->quizResult) {
-            $lastLessonCompleted = Lesson::all()->last()->quizResult->correct_percentage >= (int)AppSettings::where('name', 'acceptable_percentage')->first()->value;
+            $lastLessonCompleted = Lesson::all()->last()->quizResult->correct_percentage >= $acceptable_percentage;
         }
         else {
             $lastLessonCompleted = false;
@@ -39,7 +40,8 @@ class ViewProgressController extends Controller
             'user' => Auth::User(),
             'lessons' => Lesson::all(),
             'lessonsCount' => $lessonsCount,
-            'completedLessonsCount' => $completedLessonsCount
+            'completedLessonsCount' => $completedLessonsCount,
+            'acceptable_percentage' => $acceptable_percentage
         ]);
     }
 }
